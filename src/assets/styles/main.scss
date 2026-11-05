@@ -9,6 +9,11 @@
 @use "dependencies";
 
 /**
+ * Import base styles
+ */
+@use "base/fonts";
+
+/**
  * Import layouts
  * It's a best practice to use a different partial for each page
  */

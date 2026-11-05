@@ -6,24 +6,71 @@
 
 body {
   margin: 0;
-  font-family: variables.$font-serif;
+  font-family: variables.$font-text;
   line-height: 1.5;
   background-color: variables.$paper;
   color: variables.$ink;
 }
 
 .poster {
-  padding: 2rem;
+  padding: clamp(1rem, 3vw, 2.5rem);
   background-color: variables.$cloth;
   color: variables.$foil;
+}
+
+.poster__cover {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  align-items: center;
+  row-gap: 1.5rem;
+  min-height: 90vh;
+  padding: 2rem;
   text-align: center;
+  border: 1px solid currentcolor;
+  outline: 1px solid currentcolor;
+  outline-offset: 4px;
+}
+
+.poster__dot {
+  grid-column: 4 / 10;
+  grid-row: 1;
+  justify-self: center;
+  width: min(36vw, 44vh);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background-color: currentcolor;
+}
+
+.poster__date {
+  grid-column: 1 / 4;
+  grid-row: 1;
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.poster__venue {
+  grid-column: 10 / -1;
+  grid-row: 1;
+  margin: 0;
+  font-size: 1.25rem;
 }
 
 .poster__title {
+  grid-column: 1 / -1;
+  grid-row: 2;
   margin: 0;
-  font-size: 4rem;
+  font-family: variables.$font-display;
+  font-size: 10.5vw;
   font-weight: 400;
   line-height: 1;
+}
+
+.poster__phrase {
+  grid-column: 3 / 11;
+  grid-row: 3;
+  margin: 0;
+  font-size: 1.375rem;
+  text-wrap: balance;
 }
 
 .footer {
