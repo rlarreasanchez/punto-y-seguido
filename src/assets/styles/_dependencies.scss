@@ -3,5 +3,11 @@
  * see commented examples below
  */
 
-// @import "some-node-module";
-// @import "@some-company/some-node-module";
+// Font Awesome Free: iconos de marca para las redes y sólidos para la interfaz.
+// Las webfonts se resuelven desde node_modules con el prefijo ~ de Parcel.
+@use "@fortawesome/fontawesome-free/scss/variables" with (
+  $font-path: "~/node_modules/@fortawesome/fontawesome-free/webfonts"
+);
+@use "@fortawesome/fontawesome-free/scss/fontawesome";
+@use "@fortawesome/fontawesome-free/scss/solid";
+@use "@fortawesome/fontawesome-free/scss/brands";
