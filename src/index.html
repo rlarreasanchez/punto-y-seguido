@@ -15,7 +15,24 @@
   <body>
     <main class="poster">
       <div class="poster__cover">
-        <div class="poster__dot"></div>
+        <picture class="poster__dot">
+          <source
+            srcset="
+              ./assets/images/pluma.jpg?as=webp&width=500 500w,
+              ./assets/images/pluma.jpg?as=webp&width=900 900w
+            "
+            sizes="(min-width: 720px) 40vw, 80vw"
+            type="image/webp"
+          />
+          <img
+            class="poster__photo"
+            src="./assets/images/pluma.jpg?width=900"
+            alt="Una pluma estilográfica escribiendo a mano sobre papel"
+            width="900"
+            height="600"
+            fetchpriority="high"
+          />
+        </picture>
         <h1 class="poster__title">Punto y seguido</h1>
         <p class="poster__date">
           <time datetime="2027-04-22">22</time>–<time datetime="2027-04-25"
