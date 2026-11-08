@@ -4,14 +4,6 @@
   box-sizing: border-box;
 }
 
-body {
-  margin: 0;
-  font-family: variables.$font-text;
-  line-height: 1.5;
-  background-color: variables.$paper;
-  color: variables.$ink;
-}
-
 .poster {
   padding: clamp(1rem, 3vw, 2.5rem);
   background-color: variables.$cloth;

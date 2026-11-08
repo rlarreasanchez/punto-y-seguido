@@ -5,3 +5,20 @@ $ink: #141d3f;
 
 $font-display: "Young Serif", Georgia, serif;
 $font-text: Literata, Georgia, serif;
+
+// Personalización de Bootstrap
+$primary: $cloth;
+$secondary: #4a5372;
+$body-bg: $paper;
+$body-color: $ink;
+$link-color: $cloth;
+$font-family-base: $font-text;
+$headings-font-family: $font-display;
+$headings-font-weight: 400;
+$border-radius: 0.25rem;
+$navbar-padding-y: 1rem;
+$navbar-nav-link-padding-x: 0.875rem;
+$navbar-brand-font-size: 1.25rem;
+$navbar-toggler-border-radius: 0.25rem;
+$nav-link-font-weight: 600;
+$transition-collapse: height 0.25s ease-out;
