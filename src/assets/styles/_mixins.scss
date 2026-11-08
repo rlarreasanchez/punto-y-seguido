@@ -16,8 +16,8 @@
 /// Ancho y márgenes laterales comunes a las páginas.
 @mixin page-width {
   max-width: variables.$page-width;
-  margin-inline: auto;
   padding-inline: variables.$page-gutter;
+  margin-inline: auto;
 }
 
 /// Efectos hover solo para dispositivos con puntero.

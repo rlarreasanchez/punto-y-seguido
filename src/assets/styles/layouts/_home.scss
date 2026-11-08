@@ -1,24 +1,25 @@
+/** @define poster */
 @use "../abstracts" as *;
 @use "../variables";
 
 .poster {
   padding: variables.$page-gutter;
-  background-color: color("cloth");
   color: color("foil");
+  background-color: color("cloth");
 
   // Versión alternativa: sin soporte de Grid, los elementos se apilan centrados.
   &__cover {
     display: flex;
     flex-direction: column;
+    gap: spacing(3);
     align-items: center;
     justify-content: center;
-    gap: spacing(3);
     min-height: 90vh;
     padding: spacing(4);
     text-align: center;
-    border: 1px solid currentcolor;
     outline: 1px solid currentcolor;
     outline-offset: 4px;
+    border: 1px solid currentcolor;
   }
 
   &__dot {
@@ -27,8 +28,8 @@
     width: min(36vw, 44vh);
     aspect-ratio: 1;
     overflow: hidden;
-    border-radius: 50%;
     background-color: currentcolor;
+    border-radius: 50%;
   }
 
   &__photo {
@@ -36,8 +37,8 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    filter: grayscale(1) contrast(1.15);
     mix-blend-mode: multiply;
+    filter: grayscale(1) contrast(1.15);
   }
 
   &__date,
@@ -48,9 +49,9 @@
 
   &__title {
     margin: 0;
-    color: inherit;
     font-size: 10.5vw;
     line-height: 1;
+    color: inherit;
   }
 
   &__phrase {
@@ -62,17 +63,17 @@
 
   &__links {
     display: flex;
-    justify-content: center;
     gap: spacing(4);
-    margin: 0;
+    justify-content: center;
     padding: 0;
+    margin: 0;
     list-style: none;
   }
 
   &__link {
-    color: inherit;
     font-family: font("display");
     font-size: rem(24);
+    color: inherit;
     text-underline-offset: 0.2em;
   }
 }
@@ -117,20 +118,20 @@
       }
 
       &__dot {
-        grid-column: 4 / 10;
         grid-row: 1;
+        grid-column: 4 / 10;
         width: min(36cqi, 44dvh);
       }
 
       &__date {
-        grid-column: 1 / 4;
         grid-row: 1;
+        grid-column: 1 / 4;
         font-size: rem(20);
       }
 
       &__venue {
-        grid-column: 10 / -1;
         grid-row: 1;
+        grid-column: 10 / -1;
         font-size: rem(20);
       }
 
@@ -140,8 +141,8 @@
       }
 
       &__phrase {
-        grid-column: 3 / 11;
         grid-row: 3;
+        grid-column: 3 / 11;
         justify-self: center;
       }
 

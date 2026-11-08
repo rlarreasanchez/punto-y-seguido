@@ -13,6 +13,8 @@
 @use "@fortawesome/fontawesome-free/scss/brands";
 
 // Bootstrap 5: solo las partes que se usan
+// Bootstrap todavía se distribuye para @import, por eso no se puede cargar con @use.
+/* stylelint-disable scss/no-global-function-names, no-invalid-position-at-import-rule */
 @import "variables";
 @import "bootstrap/scss/functions";
 @import "bootstrap/scss/variables";

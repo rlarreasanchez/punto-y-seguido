@@ -12,6 +12,7 @@
  * Import base styles
  */
 @use "base/fonts";
+@use "base/page";
 
 /**
  * Import shared components
@@ -19,6 +20,8 @@
 @use "components/logo";
 @use "components/header";
 @use "components/footer";
+@use "components/speakers";
+@use "components/speaker";
 
 /**
  * Import layouts
@@ -26,7 +29,7 @@
  */
 
 @use "layouts/home";
-@use "layouts/speakers";
+@use "layouts/speakers-page";
 
 /**
  * Do NOT include anything else in this file!

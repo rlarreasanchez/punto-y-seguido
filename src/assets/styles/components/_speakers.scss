@@ -1,0 +1,12 @@
+/** @define speakers */
+@use "../abstracts" as *;
+
+// Retícula con flex: una, dos o tres columnas según el ancho.
+.speakers {
+  display: flex;
+  flex-wrap: wrap;
+  gap: spacing(6) spacing(3);
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}

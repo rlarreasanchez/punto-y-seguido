@@ -1,9 +1,10 @@
+/** @define header */
 @use "../abstracts" as *;
 
 .header {
-  background-color: color("paper");
-  color: color("cloth");
-  border-block-end: 1px solid color("rule");
+  color: var(--page-header-color, #{color("cloth")});
+  background-color: var(--page-header-bg, #{color("paper")});
+  border-block-end: 1px solid var(--page-header-rule, #{color("rule")});
 
   &__inner {
     @include page-width;
@@ -21,11 +22,4 @@
   &__link {
     color: inherit;
   }
-}
-
-// En la portada la cabecera forma parte de la tapa del libro.
-.page--cover .header {
-  background-color: color("cloth");
-  color: color("foil");
-  border-block-end: 0;
 }

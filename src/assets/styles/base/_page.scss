@@ -1,0 +1,11 @@
+/** @define page */
+@use "../abstracts" as *;
+
+.page {
+  // En la portada la cabecera forma parte de la tapa del libro.
+  &--cover {
+    --page-header-bg: #{color("cloth")};
+    --page-header-color: #{color("foil")};
+    --page-header-rule: transparent;
+  }
+}

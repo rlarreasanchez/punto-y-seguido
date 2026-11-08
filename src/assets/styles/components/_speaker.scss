@@ -1,31 +1,10 @@
+/** @define speaker */
 @use "../abstracts" as *;
 
-.speakers-page {
-  @include page-width;
-
-  padding-block: spacing(8);
-
-  &__title {
-    margin: 0 0 spacing(6);
-    color: color("cloth");
-    font-size: clamp(2.5rem, 6vw, 4rem);
-    text-align: center;
-  }
-}
-
-// Retícula con flex: una, dos o tres columnas según el ancho.
-.speakers {
-  display: flex;
-  flex-wrap: wrap;
-  gap: spacing(6) spacing(3);
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
+// La tarjeta decide su forma según el ancho que le deja la retícula.
 .speaker {
-  container: speaker / inline-size;
   flex: 1 1 100%;
+  container: speaker / inline-size;
 
   @include mq("sm") {
     flex: 0 1 calc((100% - #{spacing(3)}) / 2);
@@ -43,14 +22,15 @@
     border-radius: 0.25rem;
   }
 
+  // Todas las fotos se imprimen en la misma tinta para que parezcan de una misma serie.
   &__photo {
     display: block;
     width: 100%;
     height: 100%;
     object-fit: cover;
     object-position: 50% 20%;
-    filter: grayscale(1) contrast(1.05);
     mix-blend-mode: multiply;
+    filter: grayscale(1) contrast(1.05);
   }
 
   &__body {
@@ -60,8 +40,8 @@
 
   &__name {
     margin: 0 0 spacing(0.5);
-    color: color("cloth");
     font-size: rem(22);
+    color: color("cloth");
   }
 
   &__bio,
@@ -71,8 +51,8 @@
 
   &__talk {
     margin-block-start: spacing(1);
-    color: color("cloth");
     font-style: italic;
+    color: color("cloth");
   }
 
   @container speaker (max-width: 18rem) {
@@ -85,8 +65,8 @@
   @container speaker (min-width: 30rem) {
     &__card {
       display: flex;
-      align-items: center;
       gap: spacing(3);
+      align-items: center;
     }
 
     &__media {
