@@ -16,17 +16,17 @@
   padding: 1rem clamp(1rem, 3vw, 2.5rem);
 }
 
-.header__menu {
-  display: flex;
-  gap: 1.5rem;
-  margin: 0;
-  padding: 0;
-  list-style: none;
+.header__toggle {
+  color: inherit;
+  border-color: currentcolor;
+}
+
+.header__collapse {
+  justify-content: flex-end;
 }
 
 .header__link {
   color: inherit;
-  text-decoration: none;
 }
 
 // En la portada la cabecera forma parte de la tapa del libro.

@@ -3,8 +3,8 @@
  * see commented examples below
  */
 
-// import 'some-node-module';
-// import SomeModule from 'some-node-module';
+// Solo el plugin de Bootstrap que usa el menú móvil.
+import "bootstrap/js/dist/collapse";
 
 /**
  * Write any other JavaScript below
