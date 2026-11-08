@@ -26,7 +26,41 @@
 }
 
 .speaker {
-  flex: 0 1 calc((100% - 3rem) / 3);
+  container: speaker / inline-size;
+  flex: 1 1 100%;
+
+  @media (min-width: 640px) {
+    flex-basis: calc((100% - 1.5rem) / 2);
+    flex-grow: 0;
+  }
+
+  @media (min-width: 1024px) {
+    flex-basis: calc((100% - 3rem) / 3);
+  }
+}
+
+@container speaker (max-width: 18rem) {
+  .speaker__name {
+    font-size: 1.25rem;
+  }
+}
+
+// Con espacio de sobra (móvil grande apaisado), foto a un lado y texto al otro.
+@container speaker (min-width: 30rem) {
+  .speaker__card {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .speaker__media {
+    flex: 0 0 45%;
+  }
+
+  .speaker__body {
+    padding-block-start: 0;
+    text-align: start;
+  }
 }
 
 .speaker__media {
