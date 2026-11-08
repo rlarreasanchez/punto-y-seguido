@@ -1,0 +1,61 @@
+@use "../variables";
+
+.speakers-page {
+  max-width: 72rem;
+  margin-inline: auto;
+  padding: 4rem clamp(1rem, 3vw, 2.5rem);
+}
+
+.speakers-page__title {
+  margin: 0 0 3rem;
+  color: variables.$cloth;
+  font-family: variables.$font-display;
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-weight: 400;
+  text-align: center;
+}
+
+// Retícula con flex: tres columnas que se reparten el ancho.
+.speakers {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3rem 1.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.speaker {
+  flex: 0 1 calc((100% - 3rem) / 3);
+}
+
+.speaker__media {
+  display: block;
+  aspect-ratio: 4 / 3;
+  background-color: #dfe5f2;
+  border-radius: 0.25rem;
+}
+
+.speaker__body {
+  padding-block-start: 1rem;
+  text-align: center;
+}
+
+.speaker__name {
+  margin: 0 0 0.25rem;
+  color: variables.$cloth;
+  font-family: variables.$font-display;
+  font-size: 1.375rem;
+  font-weight: 400;
+}
+
+.speaker__bio,
+.speaker__talk {
+  margin: 0;
+}
+
+.speaker__talk {
+  margin-block-start: 0.5rem;
+  color: variables.$cloth;
+  font-style: italic;
+}

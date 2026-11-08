@@ -72,6 +72,22 @@ body {
   text-wrap: balance;
 }
 
+.poster__links {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.poster__link {
+  color: inherit;
+  font-family: variables.$font-display;
+  font-size: 1.5rem;
+  text-underline-offset: 0.2em;
+}
+
 @supports (display: grid) {
   .poster__cover {
     display: grid;
@@ -104,5 +120,10 @@ body {
     grid-column: 3 / 11;
     grid-row: 3;
     justify-self: center;
+  }
+
+  .poster__links {
+    grid-column: 1 / -1;
+    grid-row: 4;
   }
 }
