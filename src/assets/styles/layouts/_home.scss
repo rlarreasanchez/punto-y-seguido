@@ -10,6 +10,7 @@
   color: variables.$foil;
 }
 
+// Versión alternativa: sin soporte de Grid, los elementos se apilan centrados.
 .poster__cover {
   display: flex;
   flex-direction: column;
@@ -80,42 +81,78 @@
   text-underline-offset: 0.2em;
 }
 
+// El póster se compone según su propio ancho, no el de la ventana.
 @supports (display: grid) {
+  .poster {
+    container: poster / inline-size;
+  }
+
   .poster__cover {
     display: grid;
-    grid-template-columns: repeat(12, minmax(0, 1fr));
-    row-gap: 1.5rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.5rem 1rem;
+    min-height: 0;
   }
 
   .poster__dot {
-    grid-column: 4 / 10;
-    grid-row: 1;
+    grid-column: 1 / -1;
     justify-self: center;
-  }
-
-  .poster__date {
-    grid-column: 1 / 4;
-    grid-row: 1;
-  }
-
-  .poster__venue {
-    grid-column: 10 / -1;
-    grid-row: 1;
+    width: min(70cqi, 44dvh);
   }
 
   .poster__title {
     grid-column: 1 / -1;
-    grid-row: 2;
+    font-size: 19cqi;
   }
 
-  .poster__phrase {
-    grid-column: 3 / 11;
-    grid-row: 3;
-    justify-self: center;
+  .poster__date,
+  .poster__venue {
+    font-size: 1rem;
   }
 
+  .poster__phrase,
   .poster__links {
     grid-column: 1 / -1;
-    grid-row: 4;
+  }
+
+  @container poster (min-width: 48rem) {
+    .poster__cover {
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+      row-gap: 1.5rem;
+      min-height: calc(100dvh - 9rem);
+    }
+
+    .poster__dot {
+      grid-column: 4 / 10;
+      grid-row: 1;
+      width: min(36cqi, 44dvh);
+    }
+
+    .poster__date {
+      grid-column: 1 / 4;
+      grid-row: 1;
+      font-size: 1.25rem;
+    }
+
+    .poster__venue {
+      grid-column: 10 / -1;
+      grid-row: 1;
+      font-size: 1.25rem;
+    }
+
+    .poster__title {
+      grid-row: 2;
+      font-size: 10.5cqi;
+    }
+
+    .poster__phrase {
+      grid-column: 3 / 11;
+      grid-row: 3;
+      justify-self: center;
+    }
+
+    .poster__links {
+      grid-row: 4;
+    }
   }
 }
