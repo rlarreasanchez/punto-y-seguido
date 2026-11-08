@@ -1,25 +1,23 @@
-@use "../variables";
+@use "../abstracts" as *;
 
 .speakers-page {
-  max-width: 72rem;
-  margin-inline: auto;
-  padding: 4rem clamp(1rem, 3vw, 2.5rem);
+  @include page-width;
+
+  padding-block: spacing(8);
+
+  &__title {
+    margin: 0 0 spacing(6);
+    color: color("cloth");
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    text-align: center;
+  }
 }
 
-.speakers-page__title {
-  margin: 0 0 3rem;
-  color: variables.$cloth;
-  font-family: variables.$font-display;
-  font-size: clamp(2.5rem, 6vw, 4rem);
-  font-weight: 400;
-  text-align: center;
-}
-
-// Retícula con flex: tres columnas que se reparten el ancho.
+// Retícula con flex: una, dos o tres columnas según el ancho.
 .speakers {
   display: flex;
   flex-wrap: wrap;
-  gap: 3rem 1.5rem;
+  gap: spacing(6) spacing(3);
   margin: 0;
   padding: 0;
   list-style: none;
@@ -29,78 +27,75 @@
   container: speaker / inline-size;
   flex: 1 1 100%;
 
-  @media (min-width: 640px) {
-    flex-basis: calc((100% - 1.5rem) / 2);
-    flex-grow: 0;
+  @include mq("sm") {
+    flex: 0 1 calc((100% - #{spacing(3)}) / 2);
   }
 
-  @media (min-width: 1024px) {
-    flex-basis: calc((100% - 3rem) / 3);
-  }
-}
-
-@container speaker (max-width: 18rem) {
-  .speaker__name {
-    font-size: 1.25rem;
-  }
-}
-
-// Con espacio de sobra (móvil grande apaisado), foto a un lado y texto al otro.
-@container speaker (min-width: 30rem) {
-  .speaker__card {
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
+  @include mq("lg") {
+    flex-basis: calc((100% - #{spacing(6)}) / 3);
   }
 
-  .speaker__media {
-    flex: 0 0 45%;
+  &__media {
+    display: block;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    background-color: color("tint");
+    border-radius: 0.25rem;
   }
 
-  .speaker__body {
-    padding-block-start: 0;
-    text-align: start;
+  &__photo {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 20%;
+    filter: grayscale(1) contrast(1.05);
+    mix-blend-mode: multiply;
   }
-}
 
-.speaker__media {
-  display: block;
-  aspect-ratio: 4 / 3;
-  overflow: hidden;
-  background-color: #dfe5f2;
-  border-radius: 0.25rem;
-}
+  &__body {
+    padding-block-start: spacing(2);
+    text-align: center;
+  }
 
-.speaker__photo {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: 50% 20%;
-  filter: grayscale(1) contrast(1.05);
-  mix-blend-mode: multiply;
-}
+  &__name {
+    margin: 0 0 spacing(0.5);
+    color: color("cloth");
+    font-size: rem(22);
+  }
 
-.speaker__body {
-  padding-block-start: 1rem;
-  text-align: center;
-}
+  &__bio,
+  &__talk {
+    margin: 0;
+  }
 
-.speaker__name {
-  margin: 0 0 0.25rem;
-  color: variables.$cloth;
-  font-family: variables.$font-display;
-  font-size: 1.375rem;
-  font-weight: 400;
-}
+  &__talk {
+    margin-block-start: spacing(1);
+    color: color("cloth");
+    font-style: italic;
+  }
 
-.speaker__bio,
-.speaker__talk {
-  margin: 0;
-}
+  @container speaker (max-width: 18rem) {
+    &__name {
+      font-size: rem(20);
+    }
+  }
 
-.speaker__talk {
-  margin-block-start: 0.5rem;
-  color: variables.$cloth;
-  font-style: italic;
+  // Con espacio de sobra, foto a un lado y texto al otro.
+  @container speaker (min-width: 30rem) {
+    &__card {
+      display: flex;
+      align-items: center;
+      gap: spacing(3);
+    }
+
+    &__media {
+      flex: 0 0 45%;
+    }
+
+    &__body {
+      padding-block-start: 0;
+      text-align: start;
+    }
+  }
 }

@@ -1,53 +1,54 @@
-@use "../variables";
+@use "../abstracts" as *;
 
 .footer {
-  max-width: 72rem;
-  margin-inline: auto;
-  padding: 3rem clamp(1rem, 3vw, 2.5rem) 2rem;
-  color: variables.$cloth;
+  @include page-width;
+
+  padding-block: spacing(6) spacing(4);
+  color: color("cloth");
   text-align: center;
-}
 
-.footer__contact {
-  margin: 0 0 3rem;
-  font-size: 1.125rem;
-}
+  &__contact {
+    margin: 0 0 spacing(6);
+    font-size: rem(18);
+  }
 
-.footer__link {
-  color: inherit;
-  text-underline-offset: 0.2em;
-}
+  &__link {
+    color: inherit;
+    text-underline-offset: 0.2em;
+  }
 
-.footer__bar {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1.5rem;
-  padding-block: 1.5rem;
-  border-block-start: 1px solid rgb(23 48 127 / 15%);
-}
+  &__bar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: spacing(3);
+    padding-block: spacing(3);
+    border-block-start: 1px solid color("rule");
+  }
 
-.footer__social {
-  display: flex;
-  gap: 0.25rem;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
+  &__social {
+    display: flex;
+    gap: spacing(0.5);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
 
-.footer__icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 2.75rem;
-  height: 2.75rem;
-  color: inherit;
-  font-size: 1.25rem;
-}
+  &__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: rem(44);
+    height: rem(44);
+    color: inherit;
+    font-size: rem(20);
+    text-decoration: none;
+  }
 
-.footer__legal {
-  margin: 0;
-  color: #4a5372;
-  font-size: 0.875rem;
+  &__legal {
+    margin: 0;
+    color: color("ink-soft");
+    font-size: rem(14);
+  }
 }

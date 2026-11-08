@@ -1,18 +1,18 @@
-@use "../variables";
+@use "../abstracts" as *;
 
 .logo {
   display: inline-flex;
   align-items: center;
-  gap: 0.625rem;
+  gap: spacing(1.25);
   color: inherit;
-  font-family: variables.$font-display;
-  font-size: 1.25rem;
+  font-family: font("display");
+  font-size: rem(20);
   text-decoration: none;
-}
 
-.logo__dot {
-  width: 0.875em;
-  height: 0.875em;
-  border-radius: 50%;
-  background-color: currentcolor;
+  &__dot {
+    width: 0.875em;
+    height: 0.875em;
+    border-radius: 50%;
+    background-color: currentcolor;
+  }
 }

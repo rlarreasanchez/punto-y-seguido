@@ -1,0 +1,35 @@
+@use "sass:map";
+@use "sass:math";
+@use "variables";
+
+/// Convierte px a rem usando $root-font-size.
+@function rem($px) {
+  @if math.is-unitless($px) {
+    $px: $px * 1px;
+  }
+
+  @return math.div($px, variables.$root-font-size) * 1rem;
+}
+
+/// Múltiplos de la unidad de espaciado, en rem.
+@function spacing($step) {
+  @return rem($step * variables.$spacing-unit);
+}
+
+/// Color de la paleta; detiene la compilación si no existe.
+@function color($name) {
+  @if not map.has-key(variables.$palette, $name) {
+    @error "El color `#{$name}` no existe. Colores: #{map.keys(variables.$palette)}.";
+  }
+
+  @return map.get(variables.$palette, $name);
+}
+
+/// Pila tipográfica; detiene la compilación si no existe.
+@function font($name) {
+  @if not map.has-key(variables.$typefaces, $name) {
+    @error "La fuente `#{$name}` no existe. Fuentes: #{map.keys(variables.$typefaces)}.";
+  }
+
+  @return map.get(variables.$typefaces, $name);
+}

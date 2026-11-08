@@ -1,37 +1,31 @@
-@use "../variables";
+@use "../abstracts" as *;
 
 .header {
-  background-color: variables.$paper;
-  color: variables.$cloth;
-  border-block-end: 1px solid rgb(23 48 127 / 15%);
-}
+  background-color: color("paper");
+  color: color("cloth");
+  border-block-end: 1px solid color("rule");
 
-.header__inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1.5rem;
-  max-width: 72rem;
-  margin-inline: auto;
-  padding: 1rem clamp(1rem, 3vw, 2.5rem);
-}
+  &__inner {
+    @include page-width;
+  }
 
-.header__toggle {
-  color: inherit;
-  border-color: currentcolor;
-}
+  &__toggle {
+    color: inherit;
+    border-color: currentcolor;
+  }
 
-.header__collapse {
-  justify-content: flex-end;
-}
+  &__collapse {
+    justify-content: flex-end;
+  }
 
-.header__link {
-  color: inherit;
+  &__link {
+    color: inherit;
+  }
 }
 
 // En la portada la cabecera forma parte de la tapa del libro.
 .page--cover .header {
-  background-color: variables.$cloth;
-  color: variables.$foil;
+  background-color: color("cloth");
+  color: color("foil");
   border-block-end: 0;
 }

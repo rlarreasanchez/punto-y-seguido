@@ -1,158 +1,153 @@
+@use "../abstracts" as *;
 @use "../variables";
 
-* {
-  box-sizing: border-box;
-}
-
 .poster {
-  padding: clamp(1rem, 3vw, 2.5rem);
-  background-color: variables.$cloth;
-  color: variables.$foil;
-}
+  padding: variables.$page-gutter;
+  background-color: color("cloth");
+  color: color("foil");
 
-// Versión alternativa: sin soporte de Grid, los elementos se apilan centrados.
-.poster__cover {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 1.5rem;
-  min-height: 90vh;
-  padding: 2rem;
-  text-align: center;
-  border: 1px solid currentcolor;
-  outline: 1px solid currentcolor;
-  outline-offset: 4px;
-}
+  // Versión alternativa: sin soporte de Grid, los elementos se apilan centrados.
+  &__cover {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: spacing(3);
+    min-height: 90vh;
+    padding: spacing(4);
+    text-align: center;
+    border: 1px solid currentcolor;
+    outline: 1px solid currentcolor;
+    outline-offset: 4px;
+  }
 
-.poster__dot {
-  display: block;
-  order: -1;
-  width: min(36vw, 44vh);
-  aspect-ratio: 1;
-  overflow: hidden;
-  border-radius: 50%;
-  background-color: currentcolor;
-}
+  &__dot {
+    display: block;
+    order: -1;
+    width: min(36vw, 44vh);
+    aspect-ratio: 1;
+    overflow: hidden;
+    border-radius: 50%;
+    background-color: currentcolor;
+  }
 
-.poster__photo {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  filter: grayscale(1) contrast(1.15);
-  mix-blend-mode: multiply;
-}
+  &__photo {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(1) contrast(1.15);
+    mix-blend-mode: multiply;
+  }
 
-.poster__date,
-.poster__venue {
-  margin: 0;
-  font-size: 1.25rem;
-}
+  &__date,
+  &__venue {
+    margin: 0;
+    font-size: rem(20);
+  }
 
-.poster__title {
-  margin: 0;
-  font-family: variables.$font-display;
-  font-size: 10.5vw;
-  font-weight: 400;
-  line-height: 1;
-}
+  &__title {
+    margin: 0;
+    color: inherit;
+    font-size: 10.5vw;
+    line-height: 1;
+  }
 
-.poster__phrase {
-  max-width: 40rem;
-  margin: 0;
-  font-size: 1.375rem;
-  text-wrap: balance;
-}
+  &__phrase {
+    max-width: 40rem;
+    margin: 0;
+    font-size: rem(22);
+    text-wrap: balance;
+  }
 
-.poster__links {
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
+  &__links {
+    display: flex;
+    justify-content: center;
+    gap: spacing(4);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
 
-.poster__link {
-  color: inherit;
-  font-family: variables.$font-display;
-  font-size: 1.5rem;
-  text-underline-offset: 0.2em;
+  &__link {
+    color: inherit;
+    font-family: font("display");
+    font-size: rem(24);
+    text-underline-offset: 0.2em;
+  }
 }
 
 // El póster se compone según su propio ancho, no el de la ventana.
 @supports (display: grid) {
   .poster {
     container: poster / inline-size;
-  }
 
-  .poster__cover {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 1.5rem 1rem;
-    min-height: 0;
-  }
-
-  .poster__dot {
-    grid-column: 1 / -1;
-    justify-self: center;
-    width: min(70cqi, 44dvh);
-  }
-
-  .poster__title {
-    grid-column: 1 / -1;
-    font-size: 19cqi;
-  }
-
-  .poster__date,
-  .poster__venue {
-    font-size: 1rem;
-  }
-
-  .poster__phrase,
-  .poster__links {
-    grid-column: 1 / -1;
-  }
-
-  @container poster (min-width: 48rem) {
-    .poster__cover {
-      grid-template-columns: repeat(12, minmax(0, 1fr));
-      row-gap: 1.5rem;
-      min-height: calc(100dvh - 9rem);
+    &__cover {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: spacing(3) spacing(2);
+      min-height: 0;
     }
 
-    .poster__dot {
-      grid-column: 4 / 10;
-      grid-row: 1;
-      width: min(36cqi, 44dvh);
-    }
-
-    .poster__date {
-      grid-column: 1 / 4;
-      grid-row: 1;
-      font-size: 1.25rem;
-    }
-
-    .poster__venue {
-      grid-column: 10 / -1;
-      grid-row: 1;
-      font-size: 1.25rem;
-    }
-
-    .poster__title {
-      grid-row: 2;
-      font-size: 10.5cqi;
-    }
-
-    .poster__phrase {
-      grid-column: 3 / 11;
-      grid-row: 3;
+    &__dot {
+      grid-column: 1 / -1;
       justify-self: center;
+      width: min(70cqi, 44dvh);
     }
 
-    .poster__links {
-      grid-row: 4;
+    &__title {
+      grid-column: 1 / -1;
+      font-size: 19cqi;
+    }
+
+    &__date,
+    &__venue {
+      font-size: rem(16);
+    }
+
+    &__phrase,
+    &__links {
+      grid-column: 1 / -1;
+    }
+
+    @container poster (min-width: 48rem) {
+      &__cover {
+        grid-template-columns: repeat(12, minmax(0, 1fr));
+        min-height: calc(100dvh - 9rem);
+      }
+
+      &__dot {
+        grid-column: 4 / 10;
+        grid-row: 1;
+        width: min(36cqi, 44dvh);
+      }
+
+      &__date {
+        grid-column: 1 / 4;
+        grid-row: 1;
+        font-size: rem(20);
+      }
+
+      &__venue {
+        grid-column: 10 / -1;
+        grid-row: 1;
+        font-size: rem(20);
+      }
+
+      &__title {
+        grid-row: 2;
+        font-size: 10.5cqi;
+      }
+
+      &__phrase {
+        grid-column: 3 / 11;
+        grid-row: 3;
+        justify-self: center;
+      }
+
+      &__links {
+        grid-row: 4;
+      }
     }
   }
 }

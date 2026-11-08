@@ -1,0 +1,30 @@
+@use "sass:map";
+@use "variables";
+@use "functions";
+
+/// Media query min-width (mobile first) a partir de $breakpoints.
+@mixin mq($bp) {
+  @if not map.has-key(variables.$breakpoints, $bp) {
+    @error "El breakpoint `#{$bp}` no existe. Breakpoints: #{map.keys(variables.$breakpoints)}.";
+  }
+
+  @media (min-width: map.get(variables.$breakpoints, $bp)) {
+    @content;
+  }
+}
+
+/// Ancho y márgenes laterales comunes a las páginas.
+@mixin page-width {
+  max-width: variables.$page-width;
+  margin-inline: auto;
+  padding-inline: variables.$page-gutter;
+}
+
+/// Efectos hover solo para dispositivos con puntero.
+@mixin hover {
+  @media (hover: hover) {
+    &:hover {
+      @content;
+    }
+  }
+}

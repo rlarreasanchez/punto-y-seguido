@@ -1,19 +1,45 @@
-$cloth: #17307f;
-$foil: #f0c63a;
-$paper: #f4f6f8;
-$ink: #141d3f;
+@use "sass:map";
 
-$font-display: "Young Serif", Georgia, serif;
-$font-text: Literata, Georgia, serif;
+// Tokens del proyecto: se accede a ellos con las funciones de _functions.scss.
+$palette: (
+  "cloth": #17307f,
+  "foil": #f0c63a,
+  "paper": #f4f6f8,
+  "tint": #dfe5f2,
+  "ink": #141d3f,
+  "ink-soft": #4a5372,
+  "rule": rgb(23 48 127 / 15%),
+);
+$typefaces: (
+  "display": (
+    "Young Serif",
+    Georgia,
+    serif,
+  ),
+  "text": (
+    Literata,
+    Georgia,
+    serif,
+  ),
+);
+$breakpoints: (
+  "sm": 640px,
+  "md": 768px,
+  "lg": 1024px,
+);
+$root-font-size: 16px;
+$spacing-unit: 8px;
+$page-width: 72rem;
+$page-gutter: clamp(1rem, 3vw, 2.5rem);
 
 // Personalización de Bootstrap
-$primary: $cloth;
-$secondary: #4a5372;
-$body-bg: $paper;
-$body-color: $ink;
-$link-color: $cloth;
-$font-family-base: $font-text;
-$headings-font-family: $font-display;
+$primary: map.get($palette, "cloth");
+$secondary: map.get($palette, "ink-soft");
+$body-bg: map.get($palette, "paper");
+$body-color: map.get($palette, "ink");
+$link-color: map.get($palette, "cloth");
+$font-family-base: map.get($typefaces, "text");
+$headings-font-family: map.get($typefaces, "display");
 $headings-font-weight: 400;
 $border-radius: 0.25rem;
 $navbar-padding-y: 1rem;
