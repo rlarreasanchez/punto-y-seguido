@@ -4,10 +4,30 @@
 
 .article {
   &__hero {
-    padding: spacing(10) variables.$page-gutter;
-    color: color("cloth");
+    padding: spacing(8) variables.$page-gutter spacing(10);
+    color: color("foil");
     text-align: center;
-    background-color: color("tint");
+    background-color: color("cloth");
+    background-size: rem(120);
+  }
+
+  &__dot {
+    display: block;
+    width: rem(112);
+    height: rem(112);
+    margin: 0 auto spacing(3);
+    overflow: hidden;
+    background-color: color("foil");
+    border-radius: 50%;
+  }
+
+  &__dot-photo {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    mix-blend-mode: multiply;
+    filter: grayscale(1) contrast(1.15);
   }
 
   &__title {
@@ -26,6 +46,7 @@
     max-width: 44rem;
     padding: spacing(8) variables.$page-gutter;
     margin-inline: auto;
+    container: article / inline-size;
   }
 
   &__lead {
@@ -35,27 +56,126 @@
     color: color("cloth");
   }
 
-  // Entradilla grande junto al primer párrafo, como en el wireframe.
+  // Entradilla grande junto al primer párrafo
   &__intro {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
     gap: spacing(2) spacing(4);
     padding-block-end: spacing(4);
     border-block-end: 1px solid color("rule");
   }
 
-  &__intro &__lead {
-    flex: 1 1 12rem;
+  &__intro &__lead,
+  &__intro &__text {
     margin: 0;
   }
 
-  &__intro &__text {
-    flex: 2 1 16rem;
-    margin: 0;
+  @container article (min-width: 34rem) {
+    &__intro {
+      flex-direction: row;
+    }
+
+    &__intro &__lead {
+      flex: 1 1 0;
+    }
+
+    &__intro &__text {
+      flex: 1.6 1 0;
+    }
+
+    &__quote-text {
+      font-size: 5.5cqi;
+    }
   }
 
   &__section {
     margin-block-start: spacing(5);
+  }
+
+  &__figure {
+    margin: spacing(5) 0;
+  }
+
+  // La foto ancha se sale de la columna de texto, centrada sobre ella.
+  &__figure--wide {
+    --article-figure-width: min(60rem, 100vw - 2 * #{variables.$page-gutter});
+
+    width: var(--article-figure-width);
+    margin-inline: calc((100% - var(--article-figure-width)) / 2);
+  }
+
+  &__image {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 0.25rem;
+  }
+
+  // postcss-bem-linter: ignore
+  &__figure:has(figcaption) {
+    padding-block-end: spacing(1.5);
+    border-block-end: 1px solid color("rule");
+  }
+
+  &__caption {
+    margin-block-start: spacing(1.5);
+    font-size: rem(15);
+    color: color("ink-soft");
+  }
+
+  // postcss-bem-linter: ignore
+  &__section :where(p, ul) {
+    margin-block: 0 spacing(2.5);
+  }
+
+  // postcss-bem-linter: ignore
+  &__section > :is(p, ul):last-child {
+    margin-block-end: 0;
+  }
+
+  &__heading {
+    margin: 0 0 spacing(2);
+    font-size: rem(26);
+    color: color("cloth");
+  }
+
+  &__list {
+    padding-inline-start: spacing(2.5);
+  }
+
+  &__list-item::marker {
+    font-weight: 700;
+    color: color("cloth");
+    content: "·  ";
+  }
+
+  // Cita: la voz cambia de tipografía y se centra
+  &__quote {
+    margin: spacing(5) 0;
+    color: color("cloth");
+    text-align: center;
+  }
+
+  &__quote::before {
+    display: block;
+    width: rem(12);
+    height: rem(12);
+    margin: 0 auto spacing(2.5);
+    content: "";
+    background-color: currentcolor;
+    border-radius: 50%;
+  }
+
+  &__quote-text {
+    font-family: font("display");
+    font-size: rem(28);
+    line-height: 1.25;
+    text-wrap: balance;
+  }
+
+  &__quote-author {
+    font-size: rem(15);
+    font-weight: 600;
   }
 
   &__ways {

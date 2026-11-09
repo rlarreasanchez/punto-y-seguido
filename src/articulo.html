@@ -17,6 +17,19 @@
     <main>
       <article class="article">
         <header class="article__hero">
+          <picture class="article__dot">
+            <source
+              srcset="./assets/images/cuaderno.jpg?as=webp&width=320"
+              type="image/webp"
+            />
+            <img
+              class="article__dot-photo"
+              src="./assets/images/cuaderno.jpg?width=320"
+              alt="Un cuaderno abierto con una pluma, sobre otros libros"
+              width="320"
+              height="214"
+            />
+          </picture>
           <h1 class="article__title">Lo que viene después del punto</h1>
           <p class="article__author">
             por Inés Aranda, directora de las jornadas
@@ -43,7 +56,7 @@
             <ol class="steps">
               <li class="steps__item">
                 <h2 class="steps__title">Escuchar</h2>
-                <p>
+                <p class="steps__text">
                   Las charlas reúnen a seis autores, editores y traductores que
                   cuentan cómo trabajan, sin atajos ni recetas. Son abiertas
                   hasta completar el aforo de la sala.
@@ -51,7 +64,7 @@
               </li>
               <li class="steps__item">
                 <h2 class="steps__title">Practicar</h2>
-                <p>
+                <p class="steps__text">
                   Los talleres y los cursos se hacen en grupos pequeños y con
                   textos propios. Se llega con una página y se sale con una
                   versión mejor, y con los comentarios de quien la ha leído.
@@ -59,7 +72,7 @@
               </li>
               <li class="steps__item">
                 <h2 class="steps__title">Presentarse</h2>
-                <p>
+                <p class="steps__text">
                   El concurso de relato admite textos inéditos de hasta 3.000
                   palabras. El jurado los lee sin firma y el fallo se anuncia el
                   sábado de las jornadas, en público y leyendo el relato
@@ -94,6 +107,7 @@
                 type="image/webp"
               />
               <img
+                class="article__image"
                 src="./assets/images/biblioteca.jpg?width=1500"
                 alt="Una biblioteca de estanterías curvas llenas de libros de colores"
                 width="1500"
@@ -101,7 +115,7 @@
                 loading="lazy"
               />
             </picture>
-            <figcaption>
+            <figcaption class="article__caption">
               Cuatro días entre libros: la sala de lectura estará abierta
               durante todas las jornadas.
             </figcaption>
@@ -116,11 +130,11 @@
               ninguno ha terminado todavía.
             </p>
             <blockquote class="article__quote">
-              <p>
+              <p class="article__quote-text">
                 No pedimos a nadie que traiga un libro. Pedimos que traiga la
                 página en la que se quedó.
               </p>
-              <footer>Inés Aranda</footer>
+              <footer class="article__quote-author">Inés Aranda</footer>
             </blockquote>
             <p>
               Para esa página hemos preparado también un espacio sin programa:
@@ -141,6 +155,7 @@
                 type="image/webp"
               />
               <img
+                class="article__image"
                 src="./assets/images/lomos.jpg?width=900"
                 alt="Lomos de libros antiguos encuadernados en tela, con letras doradas"
                 width="900"
@@ -153,13 +168,15 @@
           <section class="article__section">
             <h2 class="article__heading">Qué conviene traer</h2>
             <ul class="article__list">
-              <li>
+              <li class="article__list-item">
                 Una página propia, por pequeña que sea, en papel o en pantalla.
               </li>
-              <li>
+              <li class="article__list-item">
                 Algo con que tomar notas: los talleres se trabajan a mano.
               </li>
-              <li>Ganas de leer en voz alta, aunque solo sea una vez.</li>
+              <li class="article__list-item">
+                Ganas de leer en voz alta, aunque solo sea una vez.
+              </li>
             </ul>
             <p>
               Todo lo demás lo ponen las jornadas. El programa completo y la
