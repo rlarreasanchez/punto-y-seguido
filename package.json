@@ -19,7 +19,8 @@
       "source": [
         "src/index.html",
         "src/ponentes.html",
-        "src/articulo.html"
+        "src/articulo.html",
+        "src/participa.html"
       ],
       "engines": {
         "browsers": "last 2 versions, > 0.5%, not dead"
