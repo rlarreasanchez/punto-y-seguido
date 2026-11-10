@@ -7,6 +7,10 @@
 import "bootstrap/js/dist/collapse";
 import "bootstrap/js/dist/tab";
 
+import { initSignup } from "./signup";
+
 /**
  * Write any other JavaScript below
  */
+
+initSignup();

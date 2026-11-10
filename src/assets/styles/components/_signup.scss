@@ -9,6 +9,18 @@
       border: 0;
     }
 
+    // El campo del relato solo aparece al elegir esa opción
+    @supports selector(:has(*)) {
+      &__story {
+        display: none;
+      }
+
+      // postcss-bem-linter: ignore
+      &:has(&__story-option:checked) &__story {
+        display: block;
+      }
+    }
+
     // Campo trampa para bots: fuera de la vista y del foco.
     &__trap {
       position: absolute;
