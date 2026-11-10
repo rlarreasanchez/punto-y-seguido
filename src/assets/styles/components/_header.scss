@@ -1,25 +1,27 @@
 /** @define header */
 @use "../abstracts" as *;
 
-.header {
-  color: var(--page-header-color, #{color("cloth")});
-  background-color: var(--page-header-bg, #{color("paper")});
-  border-block-end: 1px solid var(--page-header-rule, #{color("rule")});
+@layer components {
+  .header {
+    color: var(--page-header-color, #{color("cloth")});
+    background-color: var(--page-header-bg, #{color("paper")});
+    border-block-end: 1px solid var(--page-header-rule, #{color("rule")});
 
-  &__inner {
-    @include page-width;
-  }
+    &__inner {
+      @include page-width;
+    }
 
-  &__toggle {
-    color: inherit;
-    border-color: currentcolor;
-  }
+    &__toggle {
+      color: inherit;
+      border-color: currentcolor;
+    }
 
-  &__collapse {
-    justify-content: flex-end;
-  }
+    &__collapse {
+      justify-content: flex-end;
+    }
 
-  &__link {
-    color: inherit;
+    &__link {
+      color: inherit;
+    }
   }
 }
