@@ -373,6 +373,137 @@
           </div>
         </div>
       </section>
+
+      <section class="participa__section" aria-labelledby="titulo-inscripcion">
+        <h2 id="titulo-inscripcion" class="participa__heading">Inscripción</h2>
+        <form
+          class="signup"
+          name="inscripcion"
+          method="POST"
+          enctype="multipart/form-data"
+          data-netlify="true"
+          netlify-honeypot="sitio-web"
+          novalidate
+        >
+          <input type="hidden" name="form-name" value="inscripcion" />
+          <p class="signup__trap">
+            <label
+              >No rellenes este campo:
+              <input name="sitio-web" tabindex="-1" autocomplete="off"
+            /></label>
+          </p>
+
+          <div class="signup__field">
+            <label class="form-label" for="nombre">Nombre y apellidos</label>
+            <input
+              id="nombre"
+              class="form-control"
+              name="nombre"
+              type="text"
+              autocomplete="name"
+              required
+            />
+            <div class="invalid-feedback">
+              Escribe tu nombre para poder reservar tu plaza.
+            </div>
+          </div>
+
+          <div class="signup__field">
+            <label class="form-label" for="correo">Correo electrónico</label>
+            <input
+              id="correo"
+              class="form-control"
+              name="correo"
+              type="email"
+              autocomplete="email"
+              required
+            />
+            <div class="invalid-feedback">
+              Escribe un correo válido, por ejemplo nombre@dominio.es.
+            </div>
+          </div>
+
+          <fieldset class="signup__field">
+            <legend class="form-label">¿Cómo quieres participar?</legend>
+            <div class="form-check">
+              <input
+                id="modo-asistir"
+                class="form-check-input"
+                type="radio"
+                name="modalidad"
+                value="asistir"
+                checked
+              />
+              <label class="form-check-label" for="modo-asistir"
+                >Asistir a las jornadas</label
+              >
+            </div>
+            <div class="form-check">
+              <input
+                id="modo-relato"
+                class="signup__story-option form-check-input"
+                type="radio"
+                name="modalidad"
+                value="relato"
+              />
+              <label class="form-check-label" for="modo-relato"
+                >Asistir y presentar un relato al concurso</label
+              >
+            </div>
+          </fieldset>
+
+          <div class="signup__field">
+            <label class="form-label" for="taller"
+              >Taller o curso preferido</label
+            >
+            <select id="taller" class="form-select" name="taller">
+              <option value="">Solo charlas y lecturas</option>
+              <option>La trama como mapa · Hugo Mercader</option>
+              <option>Finales que no cierran · Carmen Villalba</option>
+              <option>Leer en voz alta para corregir · Lucía Ferrán</option>
+              <option>
+                Microrrelato: escribir con lo que falta · Rubén Salcedo
+              </option>
+            </select>
+          </div>
+
+          <div class="signup__story signup__field">
+            <label class="form-label" for="relato">Tu relato, sin firma</label>
+            <input
+              id="relato"
+              class="form-control"
+              name="relato"
+              type="file"
+              accept=".pdf,.docx,.odt"
+            />
+            <div class="form-text">PDF, DOCX u ODT. Hasta 3.000 palabras.</div>
+            <div class="invalid-feedback">
+              Adjunta el relato o elige solo asistir a las jornadas.
+            </div>
+          </div>
+
+          <div class="signup__field form-check">
+            <input
+              id="bases-ok"
+              class="form-check-input"
+              type="checkbox"
+              name="acepta-bases"
+              required
+            />
+            <label class="form-check-label" for="bases-ok"
+              >He leído las bases y acepto que usen mis datos para gestionar la
+              inscripción</label
+            >
+            <div class="invalid-feedback">
+              Necesitamos que aceptes las bases para continuar.
+            </div>
+          </div>
+
+          <button class="btn btn-primary btn-lg" type="submit">
+            Enviar inscripción
+          </button>
+        </form>
+      </section>
     </main>
     <include src="./views/footer.html"></include>
     <script type="module" src="./assets/scripts/main.js"></script>
