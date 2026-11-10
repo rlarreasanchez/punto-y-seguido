@@ -1,0 +1,10 @@
+/** @define program */
+@use "../abstracts" as *;
+
+@layer components {
+  .program {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+}

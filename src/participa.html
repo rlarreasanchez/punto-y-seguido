@@ -25,136 +25,248 @@
 
       <section class="participa__section" aria-labelledby="titulo-programa">
         <h2 id="titulo-programa" class="participa__heading">Programa</h2>
-        <h3>Jueves 22</h3>
-        <ul class="program">
-          <li class="session">
-            <time class="session__time" datetime="11:00">11:00</time>
-            <div class="session__body">
-              <h4 class="session__title">La trama como mapa</h4>
-              <p class="session__meta">Hugo Mercader · Aula 1</p>
-            </div>
-            <span class="session__type badge session__type--taller"
-              >Taller</span
-            >
-          </li>
-          <li class="session">
-            <time class="session__time" datetime="17:00">17:00</time>
-            <div class="session__body">
-              <h4 class="session__title">Escribir en la lengua de otra casa</h4>
-              <p class="session__meta">Amara Diallo · Sala de lectura</p>
-            </div>
-            <span class="session__type badge session__type--charla"
-              >Charla</span
-            >
-          </li>
-          <li class="session">
-            <time class="session__time" datetime="19:30">19:30</time>
-            <div class="session__body">
-              <h4 class="session__title">
-                Apertura: primeras páginas en voz alta
-              </h4>
-              <p class="session__meta">Abierta al público · Claustro</p>
-            </div>
-            <span class="session__type badge session__type--lectura"
-              >Lectura</span
-            >
-          </li>
-        </ul>
-        <h3>Viernes 23</h3>
-        <ul class="program">
-          <li class="session">
-            <time class="session__time" datetime="10:30">10:30</time>
-            <div class="session__body">
-              <h4 class="session__title">Leer en voz alta para corregir (I)</h4>
-              <p class="session__meta">Lucía Ferrán · Aula 2</p>
-            </div>
-            <span class="session__type badge session__type--curso">Curso</span>
-          </li>
-          <li class="session">
-            <time class="session__time" datetime="17:00">17:00</time>
-            <div class="session__body">
-              <h4 class="session__title">
-                Lo que un editor lee en la primera página
-              </h4>
-              <p class="session__meta">Tomás Arregui · Sala de lectura</p>
-            </div>
-            <span class="session__type badge session__type--charla"
-              >Charla</span
-            >
-          </li>
-          <li class="session">
-            <time class="session__time" datetime="19:30">19:30</time>
-            <div class="session__body">
-              <h4 class="session__title">
-                Día del Libro: un minuto por persona
-              </h4>
-              <p class="session__meta">Abierta al público · Claustro</p>
-            </div>
-            <span class="session__type badge session__type--lectura"
-              >Lectura</span
-            >
-          </li>
-        </ul>
-        <h3>Sábado 24</h3>
-        <ul class="program">
-          <li class="session">
-            <time class="session__time" datetime="10:30">10:30</time>
-            <div class="session__body">
-              <h4 class="session__title">
-                Leer en voz alta para corregir (II)
-              </h4>
-              <p class="session__meta">Lucía Ferrán · Aula 2</p>
-            </div>
-            <span class="session__type badge session__type--curso">Curso</span>
-          </li>
-          <li class="session">
-            <time class="session__time" datetime="12:30">12:30</time>
-            <div class="session__body">
-              <h4 class="session__title">Finales que no cierran</h4>
-              <p class="session__meta">Carmen Villalba · Aula 1</p>
-            </div>
-            <span class="session__type badge session__type--taller"
-              >Taller</span
-            >
-          </li>
-          <li class="session">
-            <time class="session__time" datetime="19:00">19:00</time>
-            <div class="session__body">
-              <h4 class="session__title">
-                Fallo del concurso y lectura del relato ganador
-              </h4>
-              <p class="session__meta">
-                Jurado de las jornadas · Sala de lectura
-              </p>
-            </div>
-            <span class="session__type badge session__type--concurso"
-              >Concurso</span
-            >
-          </li>
-        </ul>
-        <h3>Domingo 25</h3>
-        <ul class="program">
-          <li class="session">
-            <time class="session__time" datetime="10:30">10:30</time>
-            <div class="session__body">
-              <h4 class="session__title">
-                Microrrelato: escribir con lo que falta
-              </h4>
-              <p class="session__meta">Rubén Salcedo · Aula 2</p>
-            </div>
-            <span class="session__type badge session__type--curso">Curso</span>
-          </li>
-          <li class="session">
-            <time class="session__time" datetime="13:00">13:00</time>
-            <div class="session__body">
-              <h4 class="session__title">Cierre: la frase siguiente</h4>
-              <p class="session__meta">Abierta al público · Claustro</p>
-            </div>
-            <span class="session__type badge session__type--lectura"
-              >Lectura</span
-            >
-          </li>
-        </ul>
+        <div class="participa__days nav nav-tabs" role="tablist">
+          <button
+            id="tab-jueves"
+            class="nav-link active"
+            type="button"
+            role="tab"
+            data-bs-toggle="tab"
+            data-bs-target="#dia-jueves"
+            aria-controls="dia-jueves"
+            aria-selected="true"
+          >
+            Jueves 22
+          </button>
+          <button
+            id="tab-viernes"
+            class="nav-link"
+            type="button"
+            role="tab"
+            data-bs-toggle="tab"
+            data-bs-target="#dia-viernes"
+            aria-controls="dia-viernes"
+            aria-selected="false"
+          >
+            Viernes 23
+          </button>
+          <button
+            id="tab-sabado"
+            class="nav-link"
+            type="button"
+            role="tab"
+            data-bs-toggle="tab"
+            data-bs-target="#dia-sabado"
+            aria-controls="dia-sabado"
+            aria-selected="false"
+          >
+            Sábado 24
+          </button>
+          <button
+            id="tab-domingo"
+            class="nav-link"
+            type="button"
+            role="tab"
+            data-bs-toggle="tab"
+            data-bs-target="#dia-domingo"
+            aria-controls="dia-domingo"
+            aria-selected="false"
+          >
+            Domingo 25
+          </button>
+        </div>
+        <div class="tab-content">
+          <div
+            id="dia-jueves"
+            class="tab-pane active"
+            role="tabpanel"
+            aria-labelledby="tab-jueves"
+            tabindex="0"
+          >
+            <ul class="program">
+              <li class="session">
+                <div class="session__row">
+                  <time class="session__time" datetime="11:00">11:00</time>
+                  <div class="session__body">
+                    <h3 class="session__title">La trama como mapa</h3>
+                    <p class="session__meta">Hugo Mercader · Aula 1</p>
+                  </div>
+                  <span class="session__type badge session__type--taller"
+                    >Taller</span
+                  >
+                </div>
+              </li>
+              <li class="session">
+                <div class="session__row">
+                  <time class="session__time" datetime="17:00">17:00</time>
+                  <div class="session__body">
+                    <h3 class="session__title">
+                      Escribir en la lengua de otra casa
+                    </h3>
+                    <p class="session__meta">Amara Diallo · Sala de lectura</p>
+                  </div>
+                  <span class="session__type badge session__type--charla"
+                    >Charla</span
+                  >
+                </div>
+              </li>
+              <li class="session">
+                <div class="session__row">
+                  <time class="session__time" datetime="19:30">19:30</time>
+                  <div class="session__body">
+                    <h3 class="session__title">
+                      Apertura: primeras páginas en voz alta
+                    </h3>
+                    <p class="session__meta">Abierta al público · Claustro</p>
+                  </div>
+                  <span class="session__type badge session__type--lectura"
+                    >Lectura</span
+                  >
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div
+            id="dia-viernes"
+            class="tab-pane"
+            role="tabpanel"
+            aria-labelledby="tab-viernes"
+            tabindex="0"
+          >
+            <ul class="program">
+              <li class="session">
+                <div class="session__row">
+                  <time class="session__time" datetime="10:30">10:30</time>
+                  <div class="session__body">
+                    <h3 class="session__title">
+                      Leer en voz alta para corregir (I)
+                    </h3>
+                    <p class="session__meta">Lucía Ferrán · Aula 2</p>
+                  </div>
+                  <span class="session__type badge session__type--curso"
+                    >Curso</span
+                  >
+                </div>
+              </li>
+              <li class="session">
+                <div class="session__row">
+                  <time class="session__time" datetime="17:00">17:00</time>
+                  <div class="session__body">
+                    <h3 class="session__title">
+                      Lo que un editor lee en la primera página
+                    </h3>
+                    <p class="session__meta">Tomás Arregui · Sala de lectura</p>
+                  </div>
+                  <span class="session__type badge session__type--charla"
+                    >Charla</span
+                  >
+                </div>
+              </li>
+              <li class="session">
+                <div class="session__row">
+                  <time class="session__time" datetime="19:30">19:30</time>
+                  <div class="session__body">
+                    <h3 class="session__title">
+                      Día del Libro: un minuto por persona
+                    </h3>
+                    <p class="session__meta">Abierta al público · Claustro</p>
+                  </div>
+                  <span class="session__type badge session__type--lectura"
+                    >Lectura</span
+                  >
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div
+            id="dia-sabado"
+            class="tab-pane"
+            role="tabpanel"
+            aria-labelledby="tab-sabado"
+            tabindex="0"
+          >
+            <ul class="program">
+              <li class="session">
+                <div class="session__row">
+                  <time class="session__time" datetime="10:30">10:30</time>
+                  <div class="session__body">
+                    <h3 class="session__title">
+                      Leer en voz alta para corregir (II)
+                    </h3>
+                    <p class="session__meta">Lucía Ferrán · Aula 2</p>
+                  </div>
+                  <span class="session__type badge session__type--curso"
+                    >Curso</span
+                  >
+                </div>
+              </li>
+              <li class="session">
+                <div class="session__row">
+                  <time class="session__time" datetime="12:30">12:30</time>
+                  <div class="session__body">
+                    <h3 class="session__title">Finales que no cierran</h3>
+                    <p class="session__meta">Carmen Villalba · Aula 1</p>
+                  </div>
+                  <span class="session__type badge session__type--taller"
+                    >Taller</span
+                  >
+                </div>
+              </li>
+              <li class="session">
+                <div class="session__row">
+                  <time class="session__time" datetime="19:00">19:00</time>
+                  <div class="session__body">
+                    <h3 class="session__title">
+                      Fallo del concurso y lectura del relato ganador
+                    </h3>
+                    <p class="session__meta">
+                      Jurado de las jornadas · Sala de lectura
+                    </p>
+                  </div>
+                  <span class="session__type badge session__type--concurso"
+                    >Concurso</span
+                  >
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div
+            id="dia-domingo"
+            class="tab-pane"
+            role="tabpanel"
+            aria-labelledby="tab-domingo"
+            tabindex="0"
+          >
+            <ul class="program">
+              <li class="session">
+                <div class="session__row">
+                  <time class="session__time" datetime="10:30">10:30</time>
+                  <div class="session__body">
+                    <h3 class="session__title">
+                      Microrrelato: escribir con lo que falta
+                    </h3>
+                    <p class="session__meta">Rubén Salcedo · Aula 2</p>
+                  </div>
+                  <span class="session__type badge session__type--curso"
+                    >Curso</span
+                  >
+                </div>
+              </li>
+              <li class="session">
+                <div class="session__row">
+                  <time class="session__time" datetime="13:00">13:00</time>
+                  <div class="session__body">
+                    <h3 class="session__title">Cierre: la frase siguiente</h3>
+                    <p class="session__meta">Abierta al público · Claustro</p>
+                  </div>
+                  <span class="session__type badge session__type--lectura"
+                    >Lectura</span
+                  >
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
       </section>
     </main>
     <include src="./views/footer.html"></include>

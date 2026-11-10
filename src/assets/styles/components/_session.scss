@@ -1,0 +1,58 @@
+/** @define session */
+@use "../abstracts" as *;
+
+@layer components {
+  // Cada sesión es su propio contenedor
+  .session {
+    padding-block: spacing(2.5);
+    container: session / inline-size;
+    border-block-end: 1px solid color("rule");
+
+    &__row {
+      display: flex;
+      flex-direction: column;
+      gap: spacing(0.5);
+      align-items: flex-start;
+    }
+
+    @container session (min-width: 36rem) {
+      &__row {
+        flex-direction: row;
+        gap: spacing(3);
+        align-items: baseline;
+      }
+
+      &__time {
+        flex: 0 0 rem(64);
+      }
+
+      &__body {
+        flex: 1;
+      }
+    }
+
+    &__time {
+      display: block;
+      font-family: font("display");
+      font-size: rem(20);
+      font-variant-numeric: tabular-nums;
+      color: color("cloth");
+    }
+
+    &__title {
+      margin: 0;
+      font-size: rem(20);
+      color: color("cloth");
+    }
+
+    &__meta {
+      margin: 0;
+      color: color("ink-soft");
+    }
+
+    &__type {
+      color: color("cloth");
+      background-color: color("tint");
+    }
+  }
+}

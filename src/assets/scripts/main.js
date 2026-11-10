@@ -3,8 +3,9 @@
  * see commented examples below
  */
 
-// Solo el plugin de Bootstrap que usa el menú móvil.
+// Solo el plugin de Bootstrap que usa el menú móvil
 import "bootstrap/js/dist/collapse";
+import "bootstrap/js/dist/tab";
 
 /**
  * Write any other JavaScript below
