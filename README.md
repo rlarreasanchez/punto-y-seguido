@@ -1,67 +1,75 @@
-# UOC Boilerplate
+# Punto y seguido · Jornadas y concurso literario
 
-UOC Boilerplate is a starter template for the HTML and CSS Tools courses from the [Master's Program in Multimedia Applications](https://estudis.uoc.edu/ca/masters-universitaris/aplicacions-multimedia/presentacio) and the [Master's Program in Web App and Website Development](https://estudis.uoc.edu/ca/masters-universitaris/desenvolupament-llocs-aplicacions-web/presentacio) at the [Universitat Oberta de Catalunya](https://www.uoc.edu). It aims to provide a basic, modern frontend web development starter pack based on Parcel and including a Sass compiler, an ES6 transpiler, minifiers, an image transformer, and development tools.
+Sitio web de **Punto y seguido**, unas jornadas y concurso literario. Es la PEC 2 de la asignatura Herramientas HTML y CSS II del [Máster Universitario en Desarrollo de Sitios y Aplicaciones Web](https://estudis.uoc.edu/es/masters-universitarios/desarrollo-sitios-aplicaciones-web/presentacion) de la [UOC](https://www.uoc.edu).
 
-This is the 3.x version of UOC Boilerplate, available since the UOC 2020-2 semester.
+El proyecto parte del [UOC Boilerplate](https://github.com/uoc-advanced-html-css/uoc-boilerplate) (Parcel + Sass) y añade Bootstrap 5 organizado en capas de cascada para evitar conflictos de especificidad con los estilos propios.
 
-## Requirements
+## Páginas
 
-[Node.js](http://nodejs.org/) >= 18.x
+| Página | Archivo | Contenido |
+| --- | --- | --- |
+| Portada | `src/index.html` | Presentación de las jornadas y el concurso. |
+| Ponentes | `src/ponentes.html` | Listado de las personas invitadas. |
+| Artículo | `src/articulo.html` | «Lo que viene después del punto», con pasos, citas y componentes centrados. |
+| Participa | `src/participa.html` | Programa por días en pestañas, bases del concurso en un acordeón y formulario de inscripción. |
 
-## Getting started
+## Características
 
-Clone this repository with `git clone`, or download a .zip file using the top right green button.
+- **Bootstrap 5** (pestañas, acordeón, validación de formularios) importado en capas `@layer` junto a los componentes y el artículo.
+- **Sass/SCSS** con arquitectura por carpetas: `abstracts`, `base`, `components` y `layouts`.
+- **Formulario de inscripción** validado con los estilos de Bootstrap y enviado a [Netlify Forms](https://docs.netlify.com/forms/setup/) sin salir de la página (`src/assets/scripts/signup.js`). Sin JavaScript, el formulario se envía de la forma habitual.
+- **Parciales HTML** (`src/views/`) para cabecera, pie y logotipo, con `posthtml-include`.
+- Tipografías autoalojadas con Fontsource (Young Serif y Literata) e iconos de Font Awesome.
+- Transpilación y minificación de CSS, HTML y JS con Parcel, y transformación de imágenes con `sharp`.
+- Linting de estilos con Stylelint.
 
-Using the Terminal, navigate to the project folder and run `npm install`.
+## Requisitos
 
-## Features
+[Node.js](https://nodejs.org/) >= 18 (el archivo `.nvmrc` indica la versión usada en desarrollo).
 
-- Uses [Parcel v2](https://parceljs.org) module bundler.
-- NPM scripts for fast development and production build (see Commands below).
+## Puesta en marcha
 
-### Stylesheets
+```bash
+git clone https://github.com/rlarreasanchez/punto-y-seguido.git
+cd punto-y-seguido
+npm install
+npm run dev
+```
 
-- [Sass/SCSS](https://sass-lang.com) to CSS compilation (`@parcel/transformer-sass`).
-- Transpilation of modern CSS synthax to support older bvrowsers, based on `browserslist`, including vendor prefixing and synthax lowering, with [PostCSS](https://postcss.org/) (`@parcel/transformer-postcss`).
-- Minification and optimization of CSS files on production builds with [`lightningcss`](https://github.com/parcel-bundler/lightningcss) (`@parcel/optimizer-css`).
+El servidor de desarrollo se abre en <http://localhost:8123> con recarga automática.
 
-### HTML
+## Comandos
 
-- Minification and optimization of CSS files on production builds [`htmlnano`](https://github.com/posthtml/htmlnano) (`@parcel/optimizer-htmlnano`).
-- [PostHTML](https://github.com/posthtml/posthtml) (`@parcel/transformer-posthtml`) features:
-  - Include partial HTML files with [`posthtml-include`](https://github.com/posthtml/posthtml-include).
+| Comando | Descripción |
+| --- | --- |
+| `npm run dev` | Limpia cachés y arranca el servidor de desarrollo con recarga en vivo. |
+| `npm run build` | Genera la versión optimizada en `dist/`, lista para publicar. |
+| `npm run clean` | Elimina `dist/` y las carpetas de caché. |
+| `npm run lint:css` | Revisa los archivos `.scss` con Stylelint. |
+| `npm test` | Muestra un mensaje si el entorno funciona correctamente. |
 
-### Scripts
+## Estructura
 
-- Transpilation of modern JavaScript synthax to support older browsers, based on `browserslist`, with with [Babel](https://babeljs.io/) (`@parcel/transformer-babel`).
-- Minification and optimization of JS code with [SWC](https://swc.rs/) (`@parcel/optimizer-swc`).
+```text
+src/
+├── index.html · ponentes.html · articulo.html · participa.html
+├── views/                 # Parciales HTML (header, footer, logo)
+└── assets/
+    ├── images/
+    ├── scripts/           # main.js · signup.js
+    └── styles/
+        ├── main.scss      # Punto de entrada
+        ├── base/          # Fuentes y estilos de página
+        ├── components/    # Cabecera, pie, programa, sesión, ponentes, inscripción…
+        └── layouts/       # Portada, ponentes, artículo y participa
+```
 
-### Images
+Todo el contenido vive en `src/`; `dist/` se genera al compilar y no se versiona.
 
-- Image transformation with [`sharp`](https://sharp.pixelplumbing.com/) ([`@parcel/transformer-image`](https://parceljs.org/recipes/image/)).
+## Despliegue
 
-### Development
+Ejecuta `npm run build` y publica el contenido de `dist/`. El formulario de inscripción está pensado para [Netlify](https://www.netlify.com), que detecta el formulario en el HTML compilado. Como comando de build usa `npm run build` y como directorio de publicación `dist`.
 
-- Development server launch and live reloading on file changes.
-- Friendly error reporting.
+## Créditos y licencia
 
-## How to use this boilerplate
-
-Content lives inside the `src/` folder. If you do not want to change the configuration or are unsure about what you are doing, do not edit files outside the `src/` folder.
-
-Always run the following commands during the development stage and for production builds. Please note that it is expected that all projects built with this boilerplate are compiled using `npm run build` before they are published.
-
-### Commands
-
-| Command         | Description                                                                                                                                                                                                                                                                                                                                                         |
-| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `npm run dev`   | Runs a local web server for development and opens the browser to display it. Automatically compiles styles and scripts whenever a file in `src/` is changed, and live reloads the browser. This is what _must be run_ on the development stage.                                                                                                                     |
-| `npm run build` | Compiles and minifies and optimizes the files in the assets folder. The generated compiled and optimized files are located in the `dist/` folder. This is what _must be run_ before publishing the project. This is also the build command to be run by external deployment services such as Netlify. The publishable files are then located in the `dist/` folder. |
-| `npm run clean` | Deletes the current `/dist` folder and cache folders.                                                                                                                                                                                                                                                                                                               |
-| `npm run test`  | Displays a success message if everything is working as expected.                                                                                                                                                                                                                                                                                                    |
-
-## Need help? / Want to help out?
-
-Feel free to create a [new issue](https://github.com/uoc-advanced-html-css/uoc-boilerplate/issues/new/) or drop me a line at jorditarrida@uoc.edu.
-
-Are you using this Boilerplate for your projects or for educational purposes? I would love to hear about it!
+Proyecto desarrollado por Rafael Larrea a partir del UOC Boilerplate de Jordi Tarrida, publicado bajo licencia MIT. Este proyecto se distribuye también bajo licencia MIT (ver [LICENSE](LICENSE)).
