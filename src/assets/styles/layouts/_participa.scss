@@ -5,23 +5,46 @@
   .participa {
     @include page-width;
 
-    max-width: 52rem;
-    padding-block: spacing(8);
+    // Coral en OKLCH; en pantallas de gama amplia se aprovecha el espacio Display P3.
+    --participa-accent: oklch(62% 0.2 30deg);
 
-    &__hero {
-      margin-block-end: spacing(8);
+    max-width: 52rem;
+
+    @media (color-gamut: p3) {
+      --participa-accent: color(display-p3 0.9 0.32 0.2);
     }
 
+    padding-block: spacing(8);
+
+    // dvh: la cabecera ocupa un tercio de lo que se ve en cada momento
+    &__hero {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 33dvh;
+      margin-block-end: spacing(4);
+      container: participa-hero / inline-size;
+    }
+
+    // cqi: el título se escala con el ancho de su cabecera, no con el de la ventana
     &__title {
       margin: 0 0 spacing(3);
-      font-size: clamp(2.5rem, 6vw, 4rem);
+      font-size: clamp(3.5rem, 20cqi, 9rem);
+      line-height: 1;
       color: color("cloth");
       text-align: center;
     }
 
+    &__title::after {
+      color: var(--participa-accent);
+      content: ".";
+    }
+
     &__intro {
-      margin: 0;
+      max-width: 34rem;
+      margin: 0 auto;
       font-size: rem(20);
+      text-align: center;
     }
 
     &__section {

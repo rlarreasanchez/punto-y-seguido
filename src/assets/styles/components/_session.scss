@@ -50,9 +50,33 @@
       color: color("ink-soft");
     }
 
+    // Cada tipo de sesión tiene su tono en OKLCH
     &__type {
-      color: color("cloth");
-      background-color: color("tint");
+      --session-hue: 264deg;
+      --session-ink: oklch(32% 0.13 var(--session-hue));
+
+      color: var(--session-ink);
+      background-color: color-mix(in oklch, var(--session-ink) 14%, #fff);
+    }
+
+    &__type--charla {
+      --session-hue: 264deg;
+    }
+
+    &__type--taller {
+      --session-hue: 150deg;
+    }
+
+    &__type--curso {
+      --session-hue: 320deg;
+    }
+
+    &__type--lectura {
+      --session-hue: 60deg;
+    }
+
+    &__type--concurso {
+      --session-hue: 25deg;
     }
   }
 }
