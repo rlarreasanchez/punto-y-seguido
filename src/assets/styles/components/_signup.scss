@@ -4,9 +4,12 @@
 @layer components {
   .signup {
     &__field {
-      padding: 0;
       margin-block-end: spacing(3);
-      border: 0;
+    }
+
+    &__legend {
+      font-size: 1rem;
+      font-weight: 600;
     }
 
     // El campo del relato solo aparece al elegir esa opción

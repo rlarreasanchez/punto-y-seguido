@@ -33,9 +33,9 @@
 
     &__time {
       display: block;
-      font-family: font("display");
-      font-size: rem(20);
-      font-variant-numeric: tabular-nums;
+      font-size: rem(18);
+      font-weight: 600;
+      font-variant-numeric: lining-nums tabular-nums;
       color: color("cloth");
     }
 

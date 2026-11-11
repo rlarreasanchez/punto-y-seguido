@@ -50,6 +50,14 @@
       margin-block-start: spacing(8);
     }
 
+    // Las cuatro pestañas caben en una línea
+    &__days {
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      white-space: nowrap;
+      scrollbar-width: none;
+    }
+
     &__heading {
       margin: 0 0 spacing(3);
       font-size: rem(32);
