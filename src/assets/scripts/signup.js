@@ -27,7 +27,7 @@ export function initSignup() {
   if (!form) return;
 
   const alertBox = form.querySelector(".signup__result");
-  const submit = form.querySelector("[type=submit]");
+  const submit = form.querySelector(".signup__submit");
 
   form.addEventListener("change", () => syncStoryField(form));
 
