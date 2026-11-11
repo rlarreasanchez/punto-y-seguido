@@ -23,5 +23,30 @@
     &__link {
       color: inherit;
     }
+
+    // Una cinta de marcapáginas cuelga sobre la sección activa
+    &__link--current {
+      position: relative;
+      color: inherit;
+      text-decoration: underline;
+      text-decoration-thickness: 2px;
+      text-decoration-color: color("ribbon");
+      text-underline-offset: 0.3em;
+
+      @include mq("md") {
+        text-decoration: none;
+
+        &::before {
+          position: absolute;
+          inset-block-start: rem(-16);
+          inset-inline-start: calc(50% - #{rem(7)});
+          width: rem(14);
+          height: rem(26);
+          content: "";
+          background-color: color("ribbon");
+          clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 72%, 0 100%);
+        }
+      }
+    }
   }
 }
