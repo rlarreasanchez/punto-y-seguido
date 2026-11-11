@@ -28,6 +28,20 @@
       border-block-start: 1px solid color("rule");
     }
 
+    &__nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: spacing(1) spacing(4);
+      justify-content: center;
+    }
+
+    &__nav-link {
+      padding-block: spacing(1);
+      font-weight: 600;
+      color: inherit;
+      text-decoration: none;
+    }
+
     &__social {
       display: flex;
       gap: spacing(0.5);
