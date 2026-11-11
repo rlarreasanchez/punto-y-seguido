@@ -20,6 +20,17 @@
   margin-inline: auto;
 }
 
+/// Punto redondo tras un titular: el punto de Young Serif es un rombo
+@mixin title-dot($color: functions.color("ribbon")) {
+  display: inline-block;
+  width: 0.17em;
+  height: 0.17em;
+  margin-inline-start: 0.06em;
+  content: "";
+  background-color: $color;
+  border-radius: 50%;
+}
+
 /// Efectos hover solo para dispositivos con puntero.
 @mixin hover {
   @media (hover: hover) {

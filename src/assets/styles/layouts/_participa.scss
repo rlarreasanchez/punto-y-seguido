@@ -36,8 +36,7 @@
     }
 
     &__title::after {
-      color: var(--participa-accent);
-      content: ".";
+      @include title-dot(var(--participa-accent));
     }
 
     &__intro {

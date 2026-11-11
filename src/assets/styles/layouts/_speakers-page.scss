@@ -12,4 +12,8 @@
     color: color("cloth");
     text-align: center;
   }
+
+  &__title::after {
+    @include title-dot;
+  }
 }

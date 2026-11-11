@@ -1,17 +1,35 @@
-@font-face {
-  font-family: "Young Serif";
-  font-style: normal;
-  font-weight: 400;
-  src: url("~/node_modules/@fontsource/young-serif/files/young-serif-latin-400-normal.woff2")
-    format("woff2");
-  font-display: swap;
-}
+@use "sass:map";
 
-@font-face {
-  font-family: Literata;
-  font-style: normal;
-  font-weight: 400;
-  src: url("~/node_modules/@fontsource/literata/files/literata-latin-400-normal.woff2")
-    format("woff2");
-  font-display: swap;
+// Fuentes autoalojadas con @fontsource: familia, paquete y variantes que se cargan
+$font-path: "~/node_modules/@fontsource";
+$font-families: (
+  "Young Serif": (
+    "package": "young-serif",
+    "variants": (
+      (400, normal),
+    ),
+  ),
+  "Literata": (
+    "package": "literata",
+    "variants": (
+      (400, normal),
+      (400, italic),
+      (600, normal),
+    ),
+  ),
+);
+
+@each $family, $config in $font-families {
+  $package: map.get($config, "package");
+
+  @each $weight, $style in map.get($config, "variants") {
+    @font-face {
+      font-family: $family;
+      font-style: $style;
+      font-weight: $weight;
+      src: url("#{$font-path}/#{$package}/files/#{$package}-latin-#{$weight}-#{$style}.woff2")
+        format("woff2");
+      font-display: swap;
+    }
+  }
 }

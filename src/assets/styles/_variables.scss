@@ -8,6 +8,7 @@ $palette: (
   "tint": #dfe5f2,
   "ink": #141d3f,
   "ink-soft": #4a5372,
+  "ribbon": #e4573d,
   "rule": rgb(23 48 127 / 15%),
 );
 $typefaces: (
@@ -41,6 +42,8 @@ $link-color: map.get($palette, "cloth");
 $font-family-base: map.get($typefaces, "text");
 $headings-font-family: map.get($typefaces, "display");
 $headings-font-weight: 400;
+$font-weight-bold: 600;
+$font-weight-bolder: 600;
 $border-radius: 0.25rem;
 $navbar-padding-y: 1rem;
 $navbar-nav-link-padding-x: 0.875rem;
