@@ -29,7 +29,7 @@
     // cqi: el título se escala con el ancho de su cabecera, no con el de la ventana
     &__title {
       margin: 0 0 spacing(3);
-      font-size: clamp(3.5rem, 20cqi, 9rem);
+      font-size: clamp(3.5rem, 20cqi, 6rem);
       line-height: 1;
       color: color("cloth");
       text-align: center;
@@ -67,6 +67,23 @@
         flex-grow: 0;
         padding-inline: spacing(2);
         font-size: 1rem;
+      }
+    }
+
+    // En móvil se abrevia el día (Jue 22) sin quitar el nombre a los lectores de pantalla
+    &__day-rest {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      clip-path: inset(50%);
+
+      @include mq("sm") {
+        position: static;
+        width: auto;
+        height: auto;
+        overflow: visible;
+        clip-path: none;
       }
     }
 
