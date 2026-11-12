@@ -11,7 +11,7 @@ const MESSAGES = {
 };
 
 function showResult(alertBox, type) {
-  alertBox.className = `alert ${type === "success" ? "alert-success" : "alert-danger"}`;
+  alertBox.className = `signup__result alert ${type === "success" ? "alert-success" : "alert-danger"}`;
   alertBox.textContent = MESSAGES[type];
   alertBox.hidden = false;
   alertBox.focus();

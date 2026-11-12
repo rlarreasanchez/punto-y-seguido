@@ -148,13 +148,13 @@
     @container poster (min-width: 48rem) {
       &__cover {
         grid-template-columns: repeat(12, minmax(0, 1fr));
-        min-height: calc(100dvh - 9rem);
+        min-height: calc(100dvh - 10.5rem);
       }
 
       &__dot {
         grid-row: 1;
         grid-column: 4 / 10;
-        width: min(36cqi, 38dvh);
+        width: min(36cqi, 34dvh);
       }
 
       &__date {
