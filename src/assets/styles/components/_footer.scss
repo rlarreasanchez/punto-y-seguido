@@ -47,6 +47,10 @@
     }
 
     &__social {
+      @include mq("md") {
+        margin-inline-end: rem(-12);
+      }
+
       display: flex;
       gap: spacing(0.5);
       padding: 0;

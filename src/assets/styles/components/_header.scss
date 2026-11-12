@@ -21,6 +21,10 @@
 
     &__collapse {
       justify-content: flex-end;
+
+      @include mq("md") {
+        margin-inline-end: rem(-14);
+      }
     }
 
     &__link {
