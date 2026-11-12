@@ -13,10 +13,13 @@
  */
 @use "base/fonts";
 @use "base/page";
+@use "base/browser";
+@use "base/no-js";
 
 /**
  * Import shared components
  */
+@use "components/skip-link";
 @use "components/logo";
 @use "components/header";
 @use "components/footer";

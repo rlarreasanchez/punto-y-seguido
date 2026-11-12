@@ -1,0 +1,23 @@
+@use "../abstracts" as *;
+
+// Lo que dibuja el navegador también lleva la tinta y el papel del libro
+:root {
+  accent-color: color("cloth");
+  scrollbar-color: color("cloth") color("tint");
+}
+
+::selection {
+  color: color("ink");
+  background-color: color("foil");
+}
+
+:focus-visible {
+  outline: 3px solid var(--page-focus, #{color("cloth")});
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}

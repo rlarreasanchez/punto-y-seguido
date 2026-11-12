@@ -1,0 +1,20 @@
+/** @define skip-link */
+@use "../abstracts" as *;
+
+@layer components {
+  .skip-link {
+    position: absolute;
+    top: 0;
+    left: spacing(2);
+    z-index: 10;
+    padding: spacing(1) spacing(2);
+    font-weight: 600;
+    color: color("ink");
+    background-color: color("foil");
+    transform: translateY(-110%);
+
+    &:focus {
+      transform: translateY(0);
+    }
+  }
+}

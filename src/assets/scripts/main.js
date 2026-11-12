@@ -14,5 +14,7 @@ import { initSignup } from "./signup";
  * Write any other JavaScript below
  */
 
+document.documentElement.classList.replace("no-js", "js");
+
 initNav();
 initSignup();

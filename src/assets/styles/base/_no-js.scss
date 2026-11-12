@@ -1,0 +1,9 @@
+// Sin JavaScript no hay pestañas ni acordeón ni menú plegable: todo queda desplegado
+.no-js .tab-pane,
+.no-js .collapse {
+  display: block;
+}
+
+.no-js .navbar-toggler {
+  display: none;
+}

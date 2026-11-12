@@ -2,10 +2,11 @@
 @use "../abstracts" as *;
 
 .page {
-  // En la portada la cabecera forma parte de la tapa del libro.
+  // En la portada la cabecera forma parte de la tapa del libro
   &--cover {
     --page-header-bg: #{cloth()};
     --page-header-width: none;
+    --page-focus: #{color("foil")};
     --page-header-color: #{color("foil")};
     --page-header-rule: transparent;
   }
