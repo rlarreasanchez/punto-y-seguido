@@ -1,6 +1,8 @@
 @use "sass:map";
 
 // Tokens del proyecto: se accede a ellos con las funciones de _functions.scss.
+
+// --- Paleta de colores ---
 $palette: (
   "cloth": #17307f,
   "foil": #f0c63a,
@@ -11,6 +13,8 @@ $palette: (
   "ribbon": #e4573d,
   "rule": rgb(23 48 127 / 15%),
 );
+
+// --- Familias tipográficas ---
 $typefaces: (
   "display": (
     "Young Serif",
@@ -23,53 +27,77 @@ $typefaces: (
     serif,
   ),
 );
+
+// --- Breakpoints ---
 $breakpoints: (
   "sm": 640px,
   "md": 768px,
   "lg": 1024px,
 );
+
+// --- Escala y layout ---
 $root-font-size: 16px;
 $spacing-unit: 8px;
 $page-width: 72rem;
 $page-gutter: clamp(1rem, 3vw, 2.5rem);
 
 // Personalización de Bootstrap
+
+// --- Colores ---
 $primary: map.get($palette, "cloth");
 $secondary: map.get($palette, "ink-soft");
 $body-bg: map.get($palette, "paper");
 $body-color: map.get($palette, "ink");
 $link-color: map.get($palette, "cloth");
+$danger: #b3261e;
+
+// --- Tipografía ---
 $font-family-base: map.get($typefaces, "text");
 $headings-font-family: map.get($typefaces, "display");
 $headings-font-weight: 400;
 $font-weight-bold: 600;
 $font-weight-bolder: 600;
+$form-label-font-weight: 600;
+$btn-font-weight: 600;
+$badge-font-weight: 600;
+$nav-link-font-weight: 600;
+$navbar-brand-font-size: 1.25rem;
+
+// --- Bordes ---
 $border-radius: 0.25rem;
+
+// --- Transiciones ---
+$transition-collapse: height 0.25s ease-out;
+
+// --- Componentes ---
+
+// Navbar y navegación
 $navbar-padding-y: 1rem;
 $navbar-nav-link-padding-x: 0.875rem;
-$navbar-brand-font-size: 1.25rem;
 $navbar-toggler-border-radius: 0.25rem;
-$nav-link-font-weight: 600;
 $nav-link-padding-x: 0.75rem;
 $nav-tabs-border-color: map.get($palette, "rule");
 $nav-tabs-link-active-color: map.get($palette, "cloth");
 $nav-tabs-link-active-bg: map.get($palette, "paper");
+
+// Acordeón
 $accordion-bg: transparent;
 $accordion-border-color: map.get($palette, "rule");
 $accordion-button-active-bg: map.get($palette, "tint");
 $accordion-button-active-color: map.get($palette, "cloth");
 $accordion-button-color: map.get($palette, "cloth");
+
+// Formularios
 $input-bg: #fff;
 $input-border-color: map.get($palette, "ink-soft");
 $input-focus-border-color: map.get($palette, "cloth");
-$form-label-font-weight: 600;
-$danger: #b3261e;
 $form-feedback-valid-color: map.get($palette, "ink");
 $form-feedback-icon-valid: none;
 $form-check-input-border: 1px solid map.get($palette, "ink-soft");
 $form-check-input-checked-bg-color: map.get($palette, "cloth");
-$btn-font-weight: 600;
+
+// Botones
 $btn-padding-x-lg: 2rem;
-$badge-font-weight: 600;
+
+// Badges
 $badge-border-radius: 0.25rem;
-$transition-collapse: height 0.25s ease-out;

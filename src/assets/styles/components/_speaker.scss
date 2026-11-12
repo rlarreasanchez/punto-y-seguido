@@ -1,81 +1,83 @@
 /** @define speaker */
 @use "../abstracts" as *;
 
-// La tarjeta decide su forma según el ancho que le deja la retícula.
-.speaker {
-  flex: 1 1 100%;
-  container: speaker / inline-size;
+@layer components {
+  // La tarjeta decide su forma según el ancho que le deja la retícula.
+  .speaker {
+    flex: 1 1 100%;
+    container: speaker / inline-size;
 
-  @include mq("sm") {
-    flex: 0 1 calc((100% - #{spacing(3)}) / 2);
-  }
-
-  @include mq("lg") {
-    flex-basis: calc((100% - #{spacing(6)}) / 3);
-  }
-
-  &__media {
-    display: block;
-    aspect-ratio: 4 / 3;
-    overflow: hidden;
-    background-color: color("tint");
-    border-radius: 0.25rem;
-  }
-
-  // Todas las fotos se imprimen en la misma tinta para que parezcan de una misma serie.
-  &__photo {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: 50% 20%;
-    mix-blend-mode: multiply;
-    filter: grayscale(1) contrast(1.05);
-  }
-
-  &__body {
-    padding-block-start: spacing(2);
-    text-align: center;
-  }
-
-  &__name {
-    margin: 0 0 spacing(0.5);
-    font-size: rem(22);
-    color: color("cloth");
-  }
-
-  &__bio,
-  &__talk {
-    margin: 0;
-  }
-
-  &__talk {
-    margin-block-start: spacing(1);
-    font-style: italic;
-    color: color("cloth");
-  }
-
-  @container speaker (max-width: 18rem) {
-    &__name {
-      font-size: rem(20);
+    @include mq("sm") {
+      flex: 0 1 calc((100% - #{spacing(3)}) / 2);
     }
-  }
 
-  // Con espacio de sobra, foto a un lado y texto al otro.
-  @container speaker (min-width: 30rem) {
-    &__card {
-      display: flex;
-      gap: spacing(3);
-      align-items: center;
+    @include mq("lg") {
+      flex-basis: calc((100% - #{spacing(6)}) / 3);
     }
 
     &__media {
-      flex: 0 0 45%;
+      display: block;
+      aspect-ratio: 4 / 3;
+      overflow: hidden;
+      background-color: color("tint");
+      border-radius: 0.25rem;
+    }
+
+    // Todas las fotos se imprimen en la misma tinta para que parezcan de una misma serie.
+    &__photo {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: 50% 20%;
+      mix-blend-mode: multiply;
+      filter: grayscale(1) contrast(1.05);
     }
 
     &__body {
-      padding-block-start: 0;
-      text-align: start;
+      padding-block-start: spacing(2);
+      text-align: center;
+    }
+
+    &__name {
+      margin: 0 0 spacing(0.5);
+      font-size: rem(22);
+      color: color("cloth");
+    }
+
+    &__bio,
+    &__talk {
+      margin: 0;
+    }
+
+    &__talk {
+      margin-block-start: spacing(1);
+      font-style: italic;
+      color: color("cloth");
+    }
+
+    @container speaker (max-width: 18rem) {
+      &__name {
+        font-size: rem(20);
+      }
+    }
+
+    // Con espacio de sobra, foto a un lado y texto al otro.
+    @container speaker (min-width: 30rem) {
+      &__card {
+        display: flex;
+        gap: spacing(3);
+        align-items: center;
+      }
+
+      &__media {
+        flex: 0 0 45%;
+      }
+
+      &__body {
+        padding-block-start: 0;
+        text-align: start;
+      }
     }
   }
 }
