@@ -1,5 +1,18 @@
 @use "../abstracts" as *;
 
+// El punto del póster viaja hasta la cabecera del artículo al navegar entre ellos
+@view-transition {
+  navigation: auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation: none;
+  }
+}
+
 // Lo que dibuja el navegador también lleva la tinta y el papel del libro
 :root {
   accent-color: color("cloth");
