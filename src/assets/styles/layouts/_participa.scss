@@ -58,6 +58,18 @@
       scrollbar-width: none;
     }
 
+    &__day {
+      flex: 1 0 auto;
+      padding-inline: spacing(1);
+      font-size: rem(15);
+
+      @include mq("sm") {
+        flex-grow: 0;
+        padding-inline: spacing(2);
+        font-size: 1rem;
+      }
+    }
+
     &__heading {
       margin: 0 0 spacing(3);
       font-size: rem(32);
