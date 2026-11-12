@@ -1,14 +1,17 @@
 /** @define header */
 @use "../abstracts" as *;
+@use "../variables";
 
 @layer components {
   .header {
     color: var(--page-header-color, #{color("cloth")});
-    background-color: var(--page-header-bg, #{color("paper")});
+    background: var(--page-header-bg, #{color("paper")});
     border-block-end: 1px solid var(--page-header-rule, #{color("rule")});
 
     &__inner {
       @include page-width;
+
+      max-width: var(--page-header-width, #{variables.$page-width});
     }
 
     &__toggle {

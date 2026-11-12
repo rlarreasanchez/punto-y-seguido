@@ -25,6 +25,21 @@
   @return map.get(variables.$palette, $name);
 }
 
+/// Fondo de tela de encuadernar
+@function cloth() {
+  @return repeating-linear-gradient(
+      0deg,
+      rgb(255 255 255 / 3.5%) 0 1px,
+      transparent 1px 3px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      rgb(0 0 0 / 7%) 0 1px,
+      transparent 1px 3px
+    ),
+    color("cloth");
+}
+
 /// Pila tipográfica; detiene la compilación si no existe.
 @function font($name) {
   @if not map.has-key(variables.$typefaces, $name) {
