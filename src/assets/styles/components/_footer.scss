@@ -47,15 +47,15 @@
     }
 
     &__social {
-      @include mq("md") {
-        margin-inline-end: rem(-12);
-      }
-
       display: flex;
       gap: spacing(0.5);
       padding: 0;
       margin: 0;
       list-style: none;
+
+      @include mq("md") {
+        margin-inline-end: rem(-12);
+      }
     }
 
     &__icon {

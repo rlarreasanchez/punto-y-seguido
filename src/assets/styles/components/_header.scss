@@ -23,6 +23,11 @@
       padding: 0;
       color: inherit;
       border-color: currentcolor;
+
+      // Bootstrap lo oculta desde md, pero la capa de componentes gana
+      @include mq("md") {
+        display: none;
+      }
     }
 
     &__collapse {
