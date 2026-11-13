@@ -25,6 +25,11 @@
   @return map.get(variables.$palette, $name);
 }
 
+/// Papel translúcido para la cabecera fija
+@function paper-glass() {
+  @return rgb(248 248 252 / 82%);
+}
+
 /// Pila tipográfica; detiene la compilación si no existe.
 @function font($name) {
   @if not map.has-key(variables.$typefaces, $name) {

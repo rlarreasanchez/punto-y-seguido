@@ -4,9 +4,13 @@
 
 @layer components {
   .header {
+    position: sticky;
+    top: 0;
+    z-index: 20;
     color: var(--page-header-color, #{color("brand")});
-    background: var(--page-header-bg, #{color("paper")});
+    background: var(--page-header-bg, #{paper-glass()});
     border-block-end: 1px solid var(--page-header-rule, #{color("rule")});
+    backdrop-filter: blur(14px);
 
     &__inner {
       @include page-width;
@@ -38,32 +42,40 @@
       }
     }
 
+    // Subrayado que crece desde el centro al pasar el ratón
     &__link {
-      color: inherit;
-    }
-
-    // Una cinta de marcapáginas cuelga sobre la sección activa
-    &__link--current {
       position: relative;
       color: inherit;
-      text-decoration: underline;
-      text-decoration-thickness: 2px;
-      text-decoration-color: color("coral");
-      text-underline-offset: 0.3em;
 
-      @include mq("md") {
-        text-decoration: none;
+      @include hover {
+        color: inherit;
+      }
 
-        &::before {
-          position: absolute;
-          inset-block-start: rem(-16);
-          inset-inline-start: calc(50% - #{rem(7)});
-          width: rem(14);
-          height: rem(26);
-          content: "";
-          background-color: color("coral");
-          clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 72%, 0 100%);
+      &::after {
+        @include smooth(transform);
+
+        position: absolute;
+        inset-block-end: spacing(0.5);
+        inset-inline: spacing(1.75);
+        height: 2px;
+        content: "";
+        background-color: color("coral");
+        border-radius: 2px;
+        transform: scaleX(0);
+      }
+
+      @media (hover: hover) {
+        &:hover::after {
+          transform: scaleX(1);
         }
+      }
+    }
+
+    &__link--current {
+      color: inherit;
+
+      &::after {
+        transform: scaleX(1);
       }
     }
   }

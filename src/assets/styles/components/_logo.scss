@@ -15,6 +15,15 @@
       height: 0.875em;
       background-color: currentcolor;
       border-radius: 50%;
+
+      @include smooth(transform, background-color);
+    }
+
+    @media (hover: hover) {
+      &:hover &__dot {
+        background-color: color("coral");
+        transform: scale(1.35);
+      }
     }
   }
 }
