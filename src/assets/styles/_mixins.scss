@@ -20,8 +20,8 @@
   margin-inline: auto;
 }
 
-/// Punto redondo tras un titular: el punto de Young Serif es un rombo
-@mixin title-dot($color: functions.color("ribbon")) {
+/// Punto redondo y de color tras un titular
+@mixin title-dot($color: functions.color("coral")) {
   display: inline-block;
   width: 0.17em;
   height: 0.17em;

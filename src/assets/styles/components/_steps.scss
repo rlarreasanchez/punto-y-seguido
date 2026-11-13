@@ -28,16 +28,16 @@
       height: rem(32);
       font-family: font("display");
       font-size: rem(15);
-      color: color("cloth");
+      color: color("brand");
       content: counter(steps);
-      border: 1px solid color("cloth");
+      border: 1px solid color("brand");
       border-radius: 50%;
     }
 
     &__title {
       margin: 0 0 spacing(0.5);
       font-size: rem(20);
-      color: color("cloth");
+      color: color("brand");
     }
 
     &__text {

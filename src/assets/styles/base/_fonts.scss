@@ -1,20 +1,21 @@
 @use "sass:map";
 
-// Fuentes autoalojadas con @fontsource: familia, paquete y variantes que se cargan
-$font-path: "~/node_modules/@fontsource";
+// Fuentes variables autoalojadas con @fontsource: un fichero por estilo cubre todos los pesos.
+$font-path: "~/node_modules/@fontsource-variable";
 $font-families: (
-  "Young Serif": (
-    "package": "young-serif",
-    "variants": (
-      (400, normal),
+  "Bricolage Grotesque": (
+    "package": "bricolage-grotesque",
+    "weights": 200 800,
+    "styles": (
+      normal,
     ),
   ),
-  "Literata": (
-    "package": "literata",
-    "variants": (
-      (400, normal),
-      (400, italic),
-      (600, normal),
+  "Schibsted Grotesk": (
+    "package": "schibsted-grotesk",
+    "weights": 400 900,
+    "styles": (
+      normal,
+      italic,
     ),
   ),
 );
@@ -22,12 +23,12 @@ $font-families: (
 @each $family, $config in $font-families {
   $package: map.get($config, "package");
 
-  @each $weight, $style in map.get($config, "variants") {
+  @each $style in map.get($config, "styles") {
     @font-face {
       font-family: $family;
       font-style: $style;
-      font-weight: $weight;
-      src: url("#{$font-path}/#{$package}/files/#{$package}-latin-#{$weight}-#{$style}.woff2")
+      font-weight: map.get($config, "weights");
+      src: url("#{$font-path}/#{$package}/files/#{$package}-latin-wght-#{$style}.woff2")
         format("woff2");
       font-display: swap;
     }

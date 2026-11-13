@@ -4,27 +4,29 @@
 
 // --- Paleta de colores ---
 $palette: (
-  "cloth": #17307f,
-  "foil": #f0c63a,
-  "paper": #f4f6f8,
-  "tint": #dfe5f2,
-  "ink": #141d3f,
-  "ink-soft": #4a5372,
-  "ribbon": #e4573d,
-  "rule": rgb(23 48 127 / 15%),
+  "brand": #3b21e0,
+  "brand-deep": #2a14b0,
+  "lime": #d6ff41,
+  "coral": #ff5a3c,
+  "paper": #f8f8fc,
+  "surface": #fff,
+  "tint": #ecebfe,
+  "ink": #12101f,
+  "ink-soft": #57546e,
+  "rule": rgb(18 16 31 / 12%),
 );
 
 // --- Familias tipográficas ---
 $typefaces: (
   "display": (
-    "Young Serif",
-    georgia,
-    serif,
+    "Bricolage Grotesque",
+    "Arial",
+    sans-serif,
   ),
   "text": (
-    literata,
-    georgia,
-    serif,
+    "Schibsted Grotesk",
+    "Arial",
+    sans-serif,
   ),
 );
 
@@ -44,12 +46,12 @@ $page-gutter: clamp(1rem, 3vw, 2.5rem);
 // Personalización de Bootstrap
 
 // --- Colores ---
-$primary: map.get($palette, "cloth");
+$primary: map.get($palette, "brand");
 $secondary: map.get($palette, "ink-soft");
 $body-bg: map.get($palette, "paper");
 $body-color: map.get($palette, "ink");
-$link-color: map.get($palette, "cloth");
-$danger: #b3261e;
+$link-color: map.get($palette, "brand");
+$danger: #c4162a;
 
 // --- Tipografía ---
 $font-family-base: map.get($typefaces, "text");
@@ -64,7 +66,9 @@ $nav-link-font-weight: 600;
 $navbar-brand-font-size: 1.25rem;
 
 // --- Bordes ---
-$border-radius: 0.25rem;
+$border-radius: 0.75rem;
+$border-radius-lg: 1rem;
+$border-radius-sm: 0.5rem;
 
 // --- Transiciones ---
 $transition-collapse: height 0.25s ease-out;
@@ -74,30 +78,30 @@ $transition-collapse: height 0.25s ease-out;
 // Navbar y navegación
 $navbar-padding-y: 1rem;
 $navbar-nav-link-padding-x: 0.875rem;
-$navbar-toggler-border-radius: 0.25rem;
+$navbar-toggler-border-radius: 0.75rem;
 $nav-link-padding-x: 0.75rem;
 $nav-tabs-border-color: map.get($palette, "rule");
-$nav-tabs-link-active-color: map.get($palette, "cloth");
+$nav-tabs-link-active-color: map.get($palette, "brand");
 $nav-tabs-link-active-bg: map.get($palette, "paper");
 
 // Acordeón
 $accordion-bg: transparent;
 $accordion-border-color: map.get($palette, "rule");
 $accordion-button-active-bg: map.get($palette, "tint");
-$accordion-button-active-color: map.get($palette, "cloth");
-$accordion-button-color: map.get($palette, "cloth");
+$accordion-button-active-color: map.get($palette, "brand");
+$accordion-button-color: map.get($palette, "brand");
 
 // Formularios
 $input-bg: #fff;
 $input-border-color: map.get($palette, "ink-soft");
-$input-focus-border-color: map.get($palette, "cloth");
+$input-focus-border-color: map.get($palette, "brand");
 $form-feedback-valid-color: map.get($palette, "ink");
 $form-feedback-icon-valid: none;
 $form-check-input-border: 1px solid map.get($palette, "ink-soft");
-$form-check-input-checked-bg-color: map.get($palette, "cloth");
+$form-check-input-checked-bg-color: map.get($palette, "brand");
 
 // Botones
 $btn-padding-x-lg: 2rem;
 
 // Badges
-$badge-border-radius: 0.25rem;
+$badge-border-radius: 2rem;

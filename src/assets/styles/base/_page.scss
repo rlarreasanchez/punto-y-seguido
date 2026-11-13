@@ -2,12 +2,12 @@
 @use "../abstracts" as *;
 
 .page {
-  // En la portada la cabecera forma parte de la tapa del libro
+  // En la portada la cabecera se funde con el póster
   &--cover {
-    --page-header-bg: #{cloth()};
+    --page-header-bg: #{color("brand")};
     --page-header-width: none;
-    --page-focus: #{color("foil")};
-    --page-header-color: #{color("foil")};
+    --page-focus: #{color("lime")};
+    --page-header-color: #{color("lime")};
     --page-header-rule: transparent;
   }
 }

@@ -42,7 +42,7 @@
     &__name {
       margin: 0 0 spacing(0.5);
       font-size: rem(22);
-      color: color("cloth");
+      color: color("brand");
     }
 
     &__bio,
@@ -53,7 +53,7 @@
     &__talk {
       margin-block-start: spacing(1);
       font-style: italic;
-      color: color("cloth");
+      color: color("brand");
     }
 
     @container speaker (max-width: 18rem) {

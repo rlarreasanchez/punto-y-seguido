@@ -31,7 +31,7 @@
       margin: 0 0 spacing(3);
       font-size: clamp(3.5rem, 20cqi, 6rem);
       line-height: 1;
-      color: color("cloth");
+      color: color("brand");
       text-align: center;
     }
 
@@ -91,7 +91,7 @@
     &__heading {
       margin: 0 0 spacing(3);
       font-size: rem(32);
-      color: color("cloth");
+      color: color("brand");
     }
   }
 }

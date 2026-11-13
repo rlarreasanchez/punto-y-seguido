@@ -4,7 +4,7 @@
 
 @layer components {
   .header {
-    color: var(--page-header-color, #{color("cloth")});
+    color: var(--page-header-color, #{color("brand")});
     background: var(--page-header-bg, #{color("paper")});
     border-block-end: 1px solid var(--page-header-rule, #{color("rule")});
 
@@ -48,7 +48,7 @@
       color: inherit;
       text-decoration: underline;
       text-decoration-thickness: 2px;
-      text-decoration-color: color("ribbon");
+      text-decoration-color: color("coral");
       text-underline-offset: 0.3em;
 
       @include mq("md") {
@@ -61,7 +61,7 @@
           width: rem(14);
           height: rem(26);
           content: "";
-          background-color: color("ribbon");
+          background-color: color("coral");
           clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 72%, 0 100%);
         }
       }
