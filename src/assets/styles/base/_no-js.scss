@@ -7,3 +7,9 @@
 .no-js .navbar-toggler {
   display: none;
 }
+
+// AOS oculta los elementos hasta que su script los anima
+.no-js [data-aos] {
+  opacity: 1;
+  transform: none;
+}

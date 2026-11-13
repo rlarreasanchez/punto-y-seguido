@@ -31,6 +31,17 @@
   border-radius: 50%;
 }
 
+/// Transición suave que respeta prefers-reduced-motion.
+@mixin smooth($props...) {
+  @media (prefers-reduced-motion: no-preference) {
+    /* stylelint-disable no-invalid-position-declaration */
+    transition-timing-function: variables.$ease-out;
+    transition-duration: 0.35s;
+    transition-property: $props;
+    /* stylelint-enable no-invalid-position-declaration */
+  }
+}
+
 /// Efectos hover solo para dispositivos con puntero.
 @mixin hover {
   @media (hover: hover) {

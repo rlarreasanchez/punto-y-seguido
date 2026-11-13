@@ -12,6 +12,9 @@
 @use "@fortawesome/fontawesome-free/scss/solid";
 @use "@fortawesome/fontawesome-free/scss/brands";
 
+// AOS (Animate On Scroll): animaciones de aparición al hacer scroll
+@use "aos/dist/aos.css";
+
 // Orden de las capas de cascada: Bootstrap siempre pierde frente a lo propio,
 // sin importar la especificidad de sus selectores.
 @layer bootstrap, components, page;
