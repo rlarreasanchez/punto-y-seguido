@@ -42,9 +42,12 @@
 
   // Círculos de fondo
   &__orb {
+    @include smooth(translate);
+
     position: absolute;
     pointer-events: none;
     border-radius: 50%;
+    translate: calc(var(--poster-x, 0) * -3rem) calc(var(--poster-y, 0) * -3rem);
   }
 
   &__orb--large {
@@ -64,6 +67,8 @@
   }
 
   &__dot {
+    @include smooth(translate);
+
     display: block;
     order: -1;
     width: min(70vw, 40vh);
@@ -71,6 +76,8 @@
     overflow: hidden;
     background-color: color("coral");
     border-radius: 50%;
+    translate: calc(var(--poster-x, 0) * 1.5rem)
+      calc(var(--poster-y, 0) * 1.5rem);
     view-transition-name: punto;
   }
 

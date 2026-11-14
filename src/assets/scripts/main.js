@@ -11,6 +11,7 @@ import "bootstrap/js/dist/tab";
 
 import { initMarquee } from "./marquee";
 import { initNav } from "./nav";
+import { initPoster } from "./poster";
 import { initSignup } from "./signup";
 
 /**
@@ -27,4 +28,5 @@ AOS.init({
 
 initMarquee();
 initNav();
+initPoster();
 initSignup();
