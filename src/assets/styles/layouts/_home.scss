@@ -2,53 +2,76 @@
 @use "../abstracts" as *;
 @use "../variables";
 
-// El punto se estampa sobre la tapa, una sola vez, al cargar
-@keyframes poster-strike {
+// Entrada del póster: cada celda sube desde abajo y el punto aparece con un golpe de escala
+@keyframes poster-rise {
   from {
-    box-shadow: 0 0 0 1.5rem rgb(214 255 65 / 35%);
-    transform: scale(1.08);
+    opacity: 0;
+    transform: translateY(1.75rem);
   }
+}
 
-  to {
-    box-shadow: 0 0 0 0 rgb(214 255 65 / 0%);
-    transform: scale(1);
+@keyframes poster-pop {
+  from {
+    opacity: 0;
+    transform: scale(0.6);
+  }
+}
+
+@keyframes poster-float {
+  50% {
+    transform: translateY(-1.25rem);
   }
 }
 
 .poster {
-  padding: variables.$page-gutter;
-  color: color("lime");
-  background: color("brand");
+  position: relative;
+  overflow: hidden;
+  color: color("surface");
+  background-color: color("brand");
 
-  // Versión alternativa: sin soporte de Grid, los elementos se apilan centrados.
+  // Versión alternativa: sin soporte de Grid, las celdas se apilan centradas.
   &__cover {
+    position: relative;
     display: flex;
     flex-direction: column;
-    gap: spacing(3);
+    gap: spacing(2);
     align-items: center;
-    justify-content: center;
-    min-height: 90vh;
-    padding: spacing(4);
+    padding: spacing(2) variables.$page-gutter spacing(3);
     text-align: center;
-    outline: 1px solid currentcolor;
-    outline-offset: 4px;
-    border: 1px solid currentcolor;
+  }
+
+  // Círculos de fondo
+  &__orb {
+    position: absolute;
+    pointer-events: none;
+    border-radius: 50%;
+  }
+
+  &__orb--large {
+    inset-block-start: -18%;
+    inset-inline-end: -8%;
+    width: 46vw;
+    aspect-ratio: 1;
+    background-color: color("brand-deep");
+  }
+
+  &__orb--small {
+    inset-block-end: 26%;
+    inset-inline-start: 3%;
+    width: 7vw;
+    aspect-ratio: 1;
+    background-color: color("brand-deep");
   }
 
   &__dot {
     display: block;
     order: -1;
-    width: min(36vw, 44vh);
+    width: min(70vw, 40vh);
     aspect-ratio: 1;
     overflow: hidden;
-    background-color: currentcolor;
+    background-color: color("coral");
     border-radius: 50%;
     view-transition-name: punto;
-    animation: poster-strike 0.9s cubic-bezier(0.16, 1, 0.3, 1);
-
-    @media (prefers-reduced-motion: reduce) {
-      animation: none;
-    }
   }
 
   &__photo {
@@ -57,59 +80,167 @@
     height: 100%;
     object-fit: cover;
     mix-blend-mode: multiply;
-    filter: grayscale(1) brightness(1.2) contrast(1.2);
-  }
-
-  &__date,
-  &__venue {
-    margin: 0;
-    font-size: rem(20);
-    text-wrap: balance;
+    filter: grayscale(1) brightness(1.15) contrast(1.15);
   }
 
   &__title {
     margin: 0;
-    font-size: 10.5vw;
-    line-height: 1;
+    font-size: 11vw;
+    font-weight: 800;
+    line-height: 0.95;
     color: inherit;
+    letter-spacing: -0.035em;
+  }
+
+  &__title::after {
+    @include title-dot(color("coral"));
+  }
+
+  &__date,
+  &__venue {
+    display: flex;
+    flex-direction: column;
+    gap: spacing(1);
+    justify-content: space-between;
+    padding: spacing(2.5);
+    margin: 0;
+    color: color("ink");
+    text-align: start;
+    border-radius: 1rem;
+  }
+
+  &__date {
+    background-color: color("lime");
+  }
+
+  &__venue {
+    background-color: color("surface");
+  }
+
+  &__days {
+    font-family: font("display");
+    font-size: rem(44);
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -0.03em;
+  }
+
+  &__month {
+    font-weight: 600;
+  }
+
+  &__place {
+    margin: 0;
+    line-height: 1.3;
+  }
+
+  &__city {
+    display: block;
+    font-family: font("display");
+    font-size: rem(28);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+  }
+
+  &__voices {
+    display: flex;
+    flex-wrap: wrap;
+    gap: spacing(1);
+    align-items: center;
+    font-weight: 700;
+    color: color("brand");
+  }
+
+  &__faces {
+    display: flex;
+  }
+
+  &__face {
+    @include smooth(margin);
+
+    width: rem(36);
+    height: rem(36);
+    object-fit: cover;
+    border: 2px solid color("surface");
+    border-radius: 50%;
+  }
+
+  &__face + &__face {
+    margin-inline-start: rem(-12);
+  }
+
+  @media (hover: hover) {
+    &__voices:hover &__face + &__face {
+      margin-inline-start: rem(-4);
+    }
   }
 
   &__phrase {
-    max-width: 40rem;
+    max-width: 44rem;
     margin: 0;
-    font-size: rem(22);
+    font-size: rem(20);
+    line-height: 1.4;
     text-wrap: balance;
   }
 
   &__links {
     display: flex;
     flex-direction: column;
+    gap: spacing(1.5);
     width: 100%;
     padding: 0;
     margin: 0;
     list-style: none;
-    border-block-start: 1px solid currentcolor;
   }
 
+  // Cada enlace es una tarjeta que se rellena de lima y empuja su flecha.
   &__link {
-    display: flex;
-    gap: spacing(2);
+    @include smooth(background-color, color, transform);
+
+    display: grid;
+    grid-template-columns: 1fr auto;
+    column-gap: spacing(2);
     align-items: center;
-    justify-content: space-between;
-    padding-block: spacing(1.5);
-    font-family: font("display");
-    font-size: rem(24);
+    padding: spacing(2) spacing(2.5);
     color: inherit;
+    text-align: start;
     text-decoration: none;
-    text-underline-offset: 0.2em;
+    background-color: rgb(255 255 255 / 12%);
+    border-radius: 1rem;
 
     @include hover {
-      text-decoration: underline;
+      color: color("ink");
+      background-color: color("lime");
+      transform: translateY(-4px);
     }
   }
 
+  &__link-label {
+    font-family: font("display");
+    font-size: rem(24);
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+  }
+
+  &__link-note {
+    grid-row: 2;
+    font-size: rem(15);
+  }
+
   &__arrow {
-    font-size: 0.7em;
+    @include smooth(transform);
+
+    grid-row: 1 / span 2;
+    grid-column: 2;
+    font-size: rem(20);
+  }
+
+  @media (hover: hover) {
+    &__link:hover &__arrow {
+      transform: translateX(6px);
+    }
   }
 }
 
@@ -121,14 +252,13 @@
     &__cover {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: spacing(3) spacing(2);
-      min-height: 0;
+      gap: spacing(1.5);
     }
 
     &__dot {
       grid-column: 1 / -1;
       justify-self: center;
-      width: min(70cqi, 44dvh);
+      width: min(68cqi, 38dvh);
     }
 
     &__title {
@@ -136,38 +266,50 @@
       font-size: 19cqi;
     }
 
-    &__date,
-    &__venue {
-      font-size: rem(16);
-    }
-
     &__phrase,
     &__links {
       grid-column: 1 / -1;
     }
 
+    &__days {
+      font-size: 11cqi;
+    }
+
+    &__city {
+      font-size: 7cqi;
+    }
+
     @container poster (min-width: 48rem) {
       &__cover {
+        grid-template-rows: minmax(0, 1fr) auto auto auto;
         grid-template-columns: repeat(12, minmax(0, 1fr));
-        min-height: calc(100dvh - 10.5rem);
+        gap: spacing(2);
+        min-height: calc(100dvh - 8.5rem);
       }
 
       &__dot {
         grid-row: 1;
-        grid-column: 4 / 10;
-        width: min(36cqi, 34dvh);
+        grid-column: 5 / 9;
+        align-self: center;
+        width: min(32cqi, 38dvh);
       }
 
       &__date {
         grid-row: 1;
-        grid-column: 1 / 4;
-        font-size: rem(20);
+        grid-column: 1 / 5;
       }
 
       &__venue {
         grid-row: 1;
-        grid-column: 10 / -1;
-        font-size: rem(20);
+        grid-column: 9 / -1;
+      }
+
+      &__days {
+        font-size: 7.5cqi;
+      }
+
+      &__city {
+        font-size: 3.4cqi;
       }
 
       &__title {
@@ -184,12 +326,63 @@
       &__links {
         flex-direction: row;
         grid-row: 4;
-        gap: spacing(4);
       }
 
       &__links-item {
         flex: 1;
       }
+    }
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .poster {
+    &__dot {
+      animation: poster-pop 0.9s variables.$ease-out both;
+    }
+
+    &__title,
+    &__date,
+    &__venue,
+    &__phrase,
+    &__links-item {
+      animation: poster-rise 0.9s variables.$ease-out both;
+    }
+
+    &__title {
+      animation-delay: 0.1s;
+    }
+
+    &__date {
+      animation-delay: 0.2s;
+    }
+
+    &__venue {
+      animation-delay: 0.3s;
+    }
+
+    &__phrase {
+      animation-delay: 0.4s;
+    }
+
+    &__links-item {
+      animation-delay: 0.5s;
+    }
+
+    &__links-item + &__links-item {
+      animation-delay: 0.6s;
+    }
+
+    &__links-item + &__links-item + &__links-item {
+      animation-delay: 0.7s;
+    }
+
+    &__orb--large {
+      animation: poster-float 9s ease-in-out infinite;
+    }
+
+    &__orb--small {
+      animation: poster-float 6s ease-in-out infinite;
     }
   }
 }

@@ -34,6 +34,8 @@
   <body class="page page--cover">
     <include src="./views/header.html"></include>
     <main id="contenido" class="poster">
+      <span class="poster__orb poster__orb--large" aria-hidden="true"></span>
+      <span class="poster__orb poster__orb--small" aria-hidden="true"></span>
       <div class="poster__cover">
         <picture class="poster__dot">
           <source
@@ -41,7 +43,7 @@
               ./assets/images/pluma.jpg?as=webp&width=500 500w,
               ./assets/images/pluma.jpg?as=webp&width=900 900w
             "
-            sizes="(min-width: 720px) 40vw, 80vw"
+            sizes="(min-width: 768px) 32vw, 70vw"
             type="image/webp"
           />
           <img
@@ -55,12 +57,52 @@
         </picture>
         <h1 class="poster__title">Punto y seguido</h1>
         <p class="poster__date">
-          <time datetime="2027-04-22">22</time>–<time datetime="2027-04-25"
-            >25</time
-          >
-          de abril de 2027
+          <span class="poster__days">
+            <time datetime="2027-04-22">22</time>–<time datetime="2027-04-25"
+              >25</time
+            >
+          </span>
+          <span class="poster__month">de abril de 2027</span>
         </p>
-        <p class="poster__venue">Centro Cultural La&nbsp;Imprenta, Soria</p>
+        <div class="poster__venue">
+          <p class="poster__place">
+            <strong class="poster__city">Soria</strong>
+            Centro Cultural La&nbsp;Imprenta
+          </p>
+          <a class="poster__voices" href="./ponentes.html">
+            <span class="poster__faces">
+              <img
+                class="poster__face"
+                src="./assets/images/amara-diallo.jpg?as=webp&width=96&height=96&fit=cover"
+                alt=""
+                width="48"
+                height="48"
+              />
+              <img
+                class="poster__face"
+                src="./assets/images/hugo-mercader.jpg?as=webp&width=96&height=96&fit=cover"
+                alt=""
+                width="48"
+                height="48"
+              />
+              <img
+                class="poster__face"
+                src="./assets/images/carmen-villalba.jpg?as=webp&width=96&height=96&fit=cover"
+                alt=""
+                width="48"
+                height="48"
+              />
+              <img
+                class="poster__face"
+                src="./assets/images/ruben-salcedo.jpg?as=webp&width=96&height=96&fit=cover"
+                alt=""
+                width="48"
+                height="48"
+              />
+            </span>
+            Seis voces
+          </a>
+        </div>
         <p class="poster__phrase">
           Un punto no acaba nada. Cuatro días de charlas, talleres y cursos de
           escritura, y un concurso de relato para seguir escribiendo.
@@ -68,7 +110,8 @@
         <ul class="poster__links">
           <li class="poster__links-item">
             <a class="poster__link" href="./ponentes.html">
-              Ponentes
+              <span class="poster__link-label">Ponentes</span>
+              <span class="poster__link-note">Quién viene a contarlo</span>
               <i
                 class="poster__arrow fa-solid fa-arrow-right"
                 aria-hidden="true"
@@ -77,7 +120,8 @@
           </li>
           <li class="poster__links-item">
             <a class="poster__link" href="./articulo.html">
-              Artículo
+              <span class="poster__link-label">Artículo</span>
+              <span class="poster__link-note">Por qué este nombre</span>
               <i
                 class="poster__arrow fa-solid fa-arrow-right"
                 aria-hidden="true"
@@ -86,7 +130,8 @@
           </li>
           <li class="poster__links-item">
             <a class="poster__link" href="./participa.html">
-              Participa
+              <span class="poster__link-label">Participa</span>
+              <span class="poster__link-note">Programa e inscripción</span>
               <i
                 class="poster__arrow fa-solid fa-arrow-right"
                 aria-hidden="true"
