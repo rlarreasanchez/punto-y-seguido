@@ -51,18 +51,32 @@
       margin-block-start: spacing(8);
     }
 
-    // Las cuatro pestañas caben en una línea
+    // Badges en una bandeja: caben en una línea y, si no, se desplazan
     &__days {
       flex-wrap: nowrap;
+      gap: spacing(0.5);
+      padding: spacing(0.5);
+      margin-block-end: spacing(2);
       overflow-x: auto;
       white-space: nowrap;
       scrollbar-width: none;
+      background-color: color("tint");
+      border-radius: 2rem;
     }
 
     &__day {
+      @include smooth(background-color, color);
+
       flex: 1 0 auto;
       padding-inline: spacing(1);
       font-size: rem(15);
+      color: color("brand-deep");
+      border-radius: 2rem;
+
+      // postcss-bem-linter: ignore
+      &[aria-selected="true"] {
+        color: color("surface");
+      }
 
       @include mq("sm") {
         flex-grow: 0;
@@ -85,6 +99,24 @@
         height: auto;
         overflow: visible;
         clip-path: none;
+      }
+    }
+
+    &__base {
+      margin-block-end: spacing(1.5);
+      border-radius: 1rem;
+      box-shadow:
+        0 1px 2px rgb(18 16 31 / 6%),
+        0 6px 16px rgb(18 16 31 / 5%);
+    }
+
+    &__base-button {
+      @include smooth(background-color, color);
+
+      font-weight: 600;
+
+      @include hover {
+        background-color: color("tint");
       }
     }
 

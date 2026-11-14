@@ -81,13 +81,16 @@ $navbar-padding-y: 1rem;
 $navbar-nav-link-padding-x: 0.875rem;
 $navbar-toggler-border-radius: 0.75rem;
 $nav-link-padding-x: 0.75rem;
-$nav-tabs-border-color: map.get($palette, "rule");
-$nav-tabs-link-active-color: map.get($palette, "brand");
-$nav-tabs-link-active-bg: map.get($palette, "paper");
+$nav-tabs-border-width: 0;
+$nav-tabs-link-active-color: map.get($palette, "surface");
+$nav-tabs-link-active-bg: map.get($palette, "brand");
 
 // Acordeón
-$accordion-bg: transparent;
-$accordion-border-color: map.get($palette, "rule");
+$accordion-border-color: transparent;
+$accordion-bg: map.get($palette, "surface");
+$accordion-border-radius: 1rem;
+$accordion-inner-border-radius: 1rem;
+$accordion-button-padding-y: 1.125rem;
 $accordion-button-active-bg: map.get($palette, "tint");
 $accordion-button-active-color: map.get($palette, "brand");
 $accordion-button-color: map.get($palette, "brand");

@@ -4,9 +4,22 @@
 @layer components {
   // Cada sesión es su propio contenedor
   .session {
-    padding-block: spacing(2.5);
+    @include smooth(transform, box-shadow);
+
+    padding: spacing(2.5);
     container: session / inline-size;
-    border-block-end: 1px solid color("rule");
+    background-color: color("surface");
+    border-radius: 1rem;
+    box-shadow:
+      0 1px 2px rgb(18 16 31 / 6%),
+      0 6px 16px rgb(18 16 31 / 5%);
+
+    @include hover {
+      box-shadow:
+        0 2px 4px rgb(18 16 31 / 8%),
+        0 16px 32px rgb(59 33 224 / 16%);
+      transform: translateY(-3px);
+    }
 
     &__row {
       display: flex;
@@ -23,7 +36,7 @@
       }
 
       &__time {
-        flex: 0 0 rem(64);
+        flex: 0 0 rem(76);
       }
 
       &__body {
@@ -33,16 +46,17 @@
 
     &__time {
       display: block;
-      font-size: rem(18);
+      font-family: font("display");
+      font-size: rem(22);
       font-weight: 600;
       font-variant-numeric: lining-nums tabular-nums;
       color: color("brand");
+      letter-spacing: -0.01em;
     }
 
     &__title {
       margin: 0;
       font-size: rem(20);
-      color: color("brand");
     }
 
     &__meta {

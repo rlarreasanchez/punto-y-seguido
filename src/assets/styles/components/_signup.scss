@@ -24,10 +24,14 @@
       }
     }
 
-    // Campo trampa para bots: fuera de la vista y del foco.
+    // Campo trampa para bots: oculto a la vista y fuera del orden de tabulación
     &__trap {
       position: absolute;
-      left: -100vw;
+      width: 1px;
+      height: 1px;
+      margin: 0;
+      overflow: hidden;
+      clip-path: inset(50%);
     }
   }
 }
