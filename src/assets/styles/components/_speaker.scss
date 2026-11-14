@@ -4,6 +4,9 @@
 @layer components {
   // La tarjeta decide su forma según el ancho que le deja la retícula.
   .speaker {
+    --speaker-accent: #{color("brand")};
+    --speaker-accent-ink: #{color("surface")};
+
     flex: 1 1 100%;
     container: speaker / inline-size;
 
@@ -15,45 +18,121 @@
       flex-basis: calc((100% - #{spacing(6)}) / 3);
     }
 
+    &--coral {
+      --speaker-accent: #{color("coral")};
+      --speaker-accent-ink: #{color("ink")};
+    }
+
+    &--lime {
+      --speaker-accent: #{color("lime")};
+      --speaker-accent-ink: #{color("ink")};
+    }
+
+    &__card {
+      @include smooth(transform, box-shadow);
+
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      overflow: hidden;
+      background-color: color("surface");
+      border-radius: 1rem;
+      box-shadow:
+        0 1px 2px rgb(18 16 31 / 6%),
+        0 8px 24px rgb(18 16 31 / 6%);
+    }
+
     &__media {
+      position: relative;
       display: block;
+      flex: none;
       aspect-ratio: 4 / 3;
       overflow: hidden;
       background-color: color("tint");
-      border-radius: 0.25rem;
+    }
+
+    // Punto de color en la esquina: crece al pasar por la tarjeta.
+    &__media::after {
+      @include smooth(transform);
+
+      position: absolute;
+      inset-block-end: spacing(-3);
+      inset-inline-end: spacing(-3);
+      width: rem(96);
+      height: rem(96);
+      content: "";
+      background-color: var(--speaker-accent);
+      border-radius: 50%;
+      transform: scale(0.75);
     }
 
     // Todas las fotos se imprimen en la misma tinta para que parezcan de una misma serie.
     &__photo {
+      @include smooth(transform, filter);
+
       display: block;
       width: 100%;
       height: 100%;
       object-fit: cover;
       object-position: 50% 20%;
-      mix-blend-mode: multiply;
-      filter: grayscale(1) contrast(1.05);
+
+      @media (hover: hover) {
+        filter: grayscale(1) contrast(1.05);
+      }
     }
 
     &__body {
-      padding-block-start: spacing(2);
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      gap: spacing(1);
+      padding: spacing(3);
       text-align: center;
     }
 
     &__name {
-      margin: 0 0 spacing(0.5);
-      font-size: rem(22);
-      color: color("brand");
-    }
-
-    &__bio,
-    &__talk {
       margin: 0;
+      font-size: rem(24);
+    }
+
+    &__bio {
+      margin: 0;
+      color: color("ink-soft");
     }
 
     &__talk {
-      margin-block-start: spacing(1);
-      font-style: italic;
-      color: color("brand");
+      @include smooth(background-color, color);
+
+      padding: spacing(1) spacing(1.5);
+      margin: auto 0 0;
+      font-size: rem(15);
+      font-weight: 600;
+      color: color("brand-deep");
+      background-color: color("tint");
+      border-radius: 0.75rem;
+    }
+
+    @media (hover: hover) {
+      &__card:hover {
+        box-shadow:
+          0 2px 4px rgb(18 16 31 / 8%),
+          0 24px 48px rgb(59 33 224 / 18%);
+        transform: translateY(-6px);
+      }
+
+      &__card:hover &__photo {
+        filter: none;
+        transform: scale(1.06);
+      }
+
+      &__card:hover &__media::after {
+        transform: scale(1.5);
+      }
+
+      &__card:hover &__talk {
+        color: var(--speaker-accent-ink);
+        background-color: var(--speaker-accent);
+      }
     }
 
     @container speaker (max-width: 18rem) {
@@ -65,18 +144,21 @@
     // Con espacio de sobra, foto a un lado y texto al otro.
     @container speaker (min-width: 30rem) {
       &__card {
-        display: flex;
-        gap: spacing(3);
-        align-items: center;
+        flex-direction: row;
       }
 
       &__media {
-        flex: 0 0 45%;
+        flex: 0 0 42%;
+        aspect-ratio: auto;
       }
 
       &__body {
-        padding-block-start: 0;
+        justify-content: center;
         text-align: start;
+      }
+
+      &__talk {
+        margin-block-start: spacing(1);
       }
     }
   }
