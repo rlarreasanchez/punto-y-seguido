@@ -9,6 +9,7 @@ import AOS from "aos";
 import "bootstrap/js/dist/collapse";
 import "bootstrap/js/dist/tab";
 
+import { initMarquee } from "./marquee";
 import { initNav } from "./nav";
 import { initSignup } from "./signup";
 
@@ -24,5 +25,6 @@ AOS.init({
   disable: window.matchMedia("(prefers-reduced-motion: reduce)").matches,
 });
 
+initMarquee();
 initNav();
 initSignup();

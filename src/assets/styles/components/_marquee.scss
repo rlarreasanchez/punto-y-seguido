@@ -1,0 +1,82 @@
+/** @define marquee */
+@use "../abstracts" as *;
+
+@keyframes marquee-slide {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@layer components {
+  // Cinta de texto decorativa: repite datos que ya están en la página.
+  .marquee {
+    position: relative;
+    overflow: hidden;
+    color: color("ink");
+    background-color: color("lime");
+
+    &__track {
+      display: flex;
+      width: max-content;
+
+      @media (prefers-reduced-motion: no-preference) {
+        animation: marquee-slide 36s linear infinite;
+      }
+    }
+
+    &--paused &__track {
+      animation-play-state: paused;
+    }
+
+    @media (hover: hover) {
+      &:hover &__track {
+        animation-play-state: paused;
+      }
+    }
+
+    &__group {
+      display: flex;
+    }
+
+    &__word {
+      display: flex;
+      align-items: center;
+      padding-block: spacing(1.25);
+      font-family: font("display");
+      font-size: rem(20);
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      white-space: nowrap;
+    }
+
+    &__word::after {
+      width: rem(10);
+      height: rem(10);
+      margin-inline: spacing(3);
+      content: "";
+      background-color: color("coral");
+      border-radius: 50%;
+    }
+
+    &__button {
+      position: absolute;
+      inset-block: 0;
+      inset-inline-end: 0;
+      width: rem(56);
+      color: inherit;
+      background-color: color("lime");
+      border: 0;
+
+      @include smooth(background-color, color);
+
+      @include hover {
+        color: color("lime");
+        background-color: color("ink");
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        display: none;
+      }
+    }
+  }
+}
