@@ -13,31 +13,39 @@
     counter-reset: steps;
 
     &__item {
+      @include smooth(background-color, transform);
+
       position: relative;
-      padding-inline-start: spacing(6);
+      padding: spacing(2) spacing(2) spacing(2) spacing(8);
       counter-increment: steps;
+      border-radius: 1rem;
+
+      @include hover {
+        background-color: color("tint");
+        transform: translateX(4px);
+      }
     }
 
     &__item::before {
       position: absolute;
-      inset-block-start: 0;
-      inset-inline-start: 0;
+      inset-block-start: spacing(1);
+      inset-inline-start: spacing(1);
       display: grid;
       place-items: center;
-      width: rem(32);
-      height: rem(32);
+      width: rem(40);
+      height: rem(40);
       font-family: font("display");
-      font-size: rem(15);
-      color: color("brand");
+      font-size: rem(18);
+      font-weight: 700;
+      color: color("surface");
       content: counter(steps);
-      border: 1px solid color("brand");
+      background-color: color("brand");
       border-radius: 50%;
     }
 
     &__title {
       margin: 0 0 spacing(0.5);
-      font-size: rem(20);
-      color: color("brand");
+      font-size: rem(22);
     }
 
     &__text {
