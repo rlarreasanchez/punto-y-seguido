@@ -3,8 +3,36 @@
 
 @layer components {
   .signup {
+    padding: spacing(4);
+    background-color: color("surface");
+    border-radius: 1rem;
+    box-shadow:
+      0 1px 2px rgb(18 16 31 / 6%),
+      0 12px 32px rgb(18 16 31 / 7%);
+
     &__field {
       margin-block-end: spacing(3);
+    }
+
+    // Botón tipo badge
+    &__submit {
+      @include smooth(
+        background-color,
+        border-color,
+        color,
+        transform,
+        box-shadow
+      );
+
+      border-radius: 2rem;
+
+      @include hover {
+        color: color("ink");
+        background-color: color("coral");
+        border-color: color("coral");
+        box-shadow: 0 12px 24px rgb(255 90 60 / 30%);
+        transform: translateY(-3px);
+      }
     }
 
     &__legend {
