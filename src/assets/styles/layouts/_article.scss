@@ -2,6 +2,12 @@
 @use "../abstracts" as *;
 @use "../variables";
 
+@keyframes article-progress {
+  from {
+    transform: scaleX(0);
+  }
+}
+
 @layer page.article {
   .article {
     &__hero {
@@ -79,6 +85,23 @@
       color: color("ink");
       background-color: color("lime");
       border-radius: 2rem;
+    }
+
+    // Barra de progreso de lectura enlazada al scroll, solo donde hay soporte
+    @supports (animation-timeline: scroll()) {
+      &__progress {
+        position: fixed;
+        inset-block-start: 0;
+        inset-inline: 0;
+        z-index: 30;
+        height: 4px;
+        background-color: color("coral");
+        transform-origin: 0 50%;
+        animation-name: article-progress;
+        animation-timing-function: linear;
+        animation-fill-mode: both;
+        animation-timeline: scroll();
+      }
     }
 
     &__body {
